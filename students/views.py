@@ -33,6 +33,10 @@ class StartSessionView(APIView):
         return Response({"session_id": session.id,
                          "message": "Session started" })
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Session
+
 class UpdateProgressView(APIView):
     def put(self, request, session_id):
         progress = request.data.get('progress')
@@ -44,7 +48,7 @@ class UpdateProgressView(APIView):
         except:
             return Response({"error": "Invalid session ID"}, status=400)
 
-
+from django.utils import timezone
 
 class EndSessionView(APIView):
     def post(self, request, session_id):
