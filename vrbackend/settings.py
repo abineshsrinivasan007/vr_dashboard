@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7lp4f=u_d+656k-v5p9w(**b9k1c9ogj7_gn%_(7u=6=%xvlp!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,9 +54,9 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
 ]
+CORS_ALLOW_ALL_ORIGINS = True  # Allow Unity calls
 
 ROOT_URLCONF = 'vrbackend.urls'
-CORS_ALLOW_ALL_ORIGINS = True  # Allows Unity to connect during testing
 
 TEMPLATES = [
     {
