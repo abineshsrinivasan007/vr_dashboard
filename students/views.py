@@ -5,6 +5,7 @@ from students.models import Student
 class LoginView(APIView):
     def post(self, request):
         vp_code = request.data.get('vp_code')
+        
         if not vp_code:
             return Response({"error": "VP code is required"}, status=400)
         try:

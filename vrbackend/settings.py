@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +42,33 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'students',
+    
 
+
+]
+JAZZMIN_SETTINGS = {
+    "site_title": "Training Admin",
+    "site_header": "Student Training Dashboard",
+    "welcome_sign": "Welcome to the Training System",
+    "theme": "cosmo",  # You can try other Jazzmin themes like 'flatly', 'darkly', 'litera', 'lumen'
+     "theme": None,  # Disable built-in Jazzmin themes to fully use custom CSS
+    "icons": {
+        "students.Student": "fas fa-user-graduate",
+        "students.Module": "fas fa-cogs",
+        "students.Session": "fas fa-clock",
+    },
+     "custom_css": "css/custom_admin.css",
+    # Optional UI tweaks
+    "list_display_links": ["id", "name"],  # clickable columns for Student & Module for better UX
+    "related_modal_active": True,           # show related model popups instead of new tabs
+    "show_ui_builder": False,               # disable UI builder if you want cleaner admin
+}
+
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
 ]
 
 MIDDLEWARE = [
