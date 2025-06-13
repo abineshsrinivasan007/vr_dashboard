@@ -60,3 +60,12 @@ class EndSessionView(APIView):
             return Response({"message": "Session ended"})
         except:
             return Response({"error": "Invalid session ID"}, status=400)
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Module
+
+class GetModuleList(APIView):
+    def get(self, request):
+        modules = Module.objects.all()
+        data = [{"id": m.id, "name": m.name} for m in modules]
+        return Response(data)
