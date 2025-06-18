@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import Student, Module, Session
+from .models import Student, Module, Session, AdminUser
+
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'vp_code')
-    search_fields = ('name', 'vp_code')
+    list_display = ('id', 'name', 'vp_code','email')
+    search_fields = ('name', 'vp_code','email')
     list_display_links = ('id', 'name')  # Make id and name clickable for editing
     list_per_page = 20  # pagination for better readability
 
@@ -21,3 +22,8 @@ class SessionAdmin(admin.ModelAdmin):
     list_filter = ('module',)
     search_fields = ('student__name', 'module__name')
     list_per_page = 20
+
+
+
+
+admin.site.register(AdminUser)  # Register AdminUser model without custom admin interface

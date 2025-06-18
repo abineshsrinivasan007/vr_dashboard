@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from students.models import Student
 
+
 class LoginView(APIView):
     def post(self, request):
         vp_code = request.data.get('vp_code')
@@ -12,7 +13,9 @@ class LoginView(APIView):
             student = Student.objects.get(vp_code=vp_code)
             return Response({
                 "id": student.id,
-                "name": student.name
+                "name": student.name,
+                "email": student.email,  # added email
+                "message": "Login successful"
             })
         except Student.DoesNotExist:
             return Response({"error": "Invalid VP code"}, status=400)
@@ -21,7 +24,6 @@ class LoginView(APIView):
         
 from students.models import Module, Session
 from django.utils import timezone
-
 class StartSessionView(APIView):
     def post(self, request):
         student_id = request.data.get('student_id')
@@ -33,11 +35,12 @@ class StartSessionView(APIView):
         )
         return Response({"session_id": session.id,
                          "message": "Session started" })
+    
+
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Session
-
 class UpdateProgressView(APIView):
     def put(self, request, session_id):
         progress = request.data.get('progress')
@@ -49,8 +52,9 @@ class UpdateProgressView(APIView):
         except:
             return Response({"error": "Invalid session ID"}, status=400)
 
-from django.utils import timezone
 
+
+from django.utils import timezone
 class EndSessionView(APIView):
     def post(self, request, session_id):
         try:
@@ -60,12 +64,55 @@ class EndSessionView(APIView):
             return Response({"message": "Session ended"})
         except:
             return Response({"error": "Invalid session ID"}, status=400)
+        
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Module
-
 class GetModuleList(APIView):
     def get(self, request):
         modules = Module.objects.all()
         data = [{"id": m.id, "name": m.name} for m in modules]
         return Response(data)
+
+
+
+
+
+
+
+
+
+# students/views.py
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import AdminUser
+from django.contrib.auth.hashers import check_password
+
+def admin_login_view(request):
+    if request.method == 'POST':
+        staff_id = request.POST.get('staff_id')
+        password = request.POST.get('password')
+
+        try:
+            user = AdminUser.objects.get(staff_id=staff_id)
+            if check_password(password, user.password):
+                request.session['admin_user_id'] = user.id
+                print(f"Admin user {user.name} logged in successfully.")
+                return redirect('admin_dashboard')  # Redirect to your dashboard view
+            else:
+                messages.error(request, "Invalid password.")
+        except AdminUser.DoesNotExist:
+            messages.error(request, "Staff ID not found.")
+
+    return render(request, 'admin-sign-in.html')
+
+
+
+def admin_dashboard_view(request):
+    admin_id = request.session.get('admin_user_id')
+    if not admin_id:
+        return redirect('admin_login')
+    
+    admin = AdminUser.objects.get(id=admin_id)
+    return render(request, 'dashboard.html', {'admin': admin})

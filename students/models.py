@@ -2,6 +2,7 @@ from django.db import models
 
 class Student(models.Model):
     name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True, null=True, blank=True) 
     vp_code = models.CharField(max_length=20, unique=True)
 
     def __str__(self):
@@ -21,3 +22,24 @@ class Session(models.Model):
 
     def __str__(self):
         return f"{self.student.name} - {self.module.name}"
+
+
+
+# students/models.py
+from django.db import models
+from django.contrib.auth.hashers import make_password
+
+class AdminUser(models.Model):
+    name = models.CharField(max_length=100)
+    staff_id = models.CharField(max_length=20, unique=True)
+    email = models.EmailField(unique=True, null=True, blank=True)  # Optional email field
+    password = models.CharField(max_length=128)
+
+    def save(self, *args, **kwargs):
+        # Hash the password if not already hashed
+        if not self.password.startswith('pbkdf2_'):
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.staff_id} - {self.name}"
