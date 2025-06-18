@@ -10,7 +10,6 @@ urlpatterns = [
     path('end-session/<int:session_id>/', EndSessionView.as_view(), name='end-session'),
     path('modules/', GetModuleList.as_view(), name='module-list'),
     
-
-    path('admin-login/', admin_login_view, name='admin_login'),
+    path('', admin_login_view, name='admin_login'),
     path('admin-dashboard/', admin_dashboard_view, name='admin_dashboard'),
 ]

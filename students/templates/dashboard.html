@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Argon Dashboard 3 by Creative Tim
+    Amet Dashboard 3
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -254,18 +254,21 @@
                 <div class="col-8">
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Student's</p>
-                    <h5 class="font-weight-bolder">
-                      1,200
+                    <h5 class="font-weight-bolder ">
+                       {{ total_students }}
                     </h5>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+55%</span>
-                      since yesterday
-                    </p>
+  <span class="{% if percent_change >= 0 %}text-success{% else %}text-danger{% endif %} text-sm font-weight-bolder">
+    {% if percent_change >= 0 %}+{% endif %}{{ percent_change }}%
+  </span>
+  since yesterday
+</p>
                   </div>
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="ni ni-circle-08 text-lg opacity-10" aria-hidden="true"></i>
+
                   </div>
                 </div>
               </div>
@@ -278,9 +281,9 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Modules</p>
                     <h5 class="font-weight-bolder">
-                      2,300
+                      {{ total_modules }}
                     </h5>
                     <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">+3%</span>
@@ -290,7 +293,7 @@
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                    	<i class="ni ni-box-2 text-lg opacity-10"></i>
                   </div>
                 </div>
               </div>
@@ -303,9 +306,9 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Sessions</p>
                     <h5 class="font-weight-bolder">
-                      +3,462
+                      {{ total_sessions }}
                     </h5>
                     <p class="mb-0">
                       <span class="text-danger text-sm font-weight-bolder">-2%</span>
@@ -315,7 +318,8 @@
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="ni ni-time-alarm text-lg opacity-10" aria-hidden="true"></i>
+
                   </div>
                 </div>
               </div>
@@ -328,18 +332,19 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
-                    <h5 class="font-weight-bolder">
-                      $103,430
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Most Active Modules</p>
+                    <h5 class="" >
+                        {{ most_active_module }}
                     </h5>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
+                        <span class="text-primary text-sm font-weight-bolder">{{ most_active_count }} sessions</span>
+                        conducted
                     </p>
                   </div>
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -358,9 +363,8 @@
               </p>
             </div>
             <div class="chart">
-  <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-</div>
-
+            <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+            </div>
           </div>
         </div>
         <div class="col-lg-5">
