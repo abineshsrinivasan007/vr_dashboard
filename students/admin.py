@@ -26,4 +26,12 @@ class SessionAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(AdminUser)  # Register AdminUser model without custom admin interface
+
+# students/admin.py
+from django.contrib import admin
+from .models import AdminUser
+
+@admin.register(AdminUser)
+class AdminUserAdmin(admin.ModelAdmin):
+    list_display = ['name', 'staff_id', 'email']
+    search_fields = ['staff_id', 'email']

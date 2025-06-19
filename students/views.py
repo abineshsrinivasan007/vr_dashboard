@@ -78,11 +78,6 @@ class GetModuleList(APIView):
 
 
 
-
-
-
-
-
 # students/views.py
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -98,14 +93,14 @@ def admin_login_view(request):
             user = AdminUser.objects.get(staff_id=staff_id)
             if check_password(password, user.password):
                 request.session['admin_user_id'] = user.id
-                print(f"Admin user {user.name} logged in successfully.")
-                return redirect('admin_dashboard')  # Redirect to your dashboard view
+                return redirect('admin_dashboard')  # ✅ Only on success
             else:
                 messages.error(request, "Invalid password.")
         except AdminUser.DoesNotExist:
             messages.error(request, "Staff ID not found.")
 
     return render(request, 'admin-sign-in.html')
+
 
 
 from django.shortcuts import render, redirect
@@ -121,6 +116,11 @@ def admin_dashboard_view(request):
         return redirect('admin_login')
 
     admin = AdminUser.objects.get(id=admin_id)
+        # Recent active students (latest 5 check-ins)
+    recent_sessions = (
+        Session.objects.select_related('student', 'module')
+        .order_by('-check_in')[:5]
+    )
 
     # Totals
     total_students = Student.objects.count()
@@ -164,6 +164,33 @@ def admin_dashboard_view(request):
     most_active_module_name = most_active_module['module__name'] if most_active_module else 'No data'
     session_count = most_active_module['session_count'] if most_active_module else 0
 
+    categories = [
+        {
+            "icon": "ni-mobile-button",
+            "title": "Total Modules",
+            "description": f"{total_modules} modules available, ",
+            "highlight": f"{total_sessions} sessions conducted",
+        },
+        {
+            "icon": "ni-tag",
+            "title": "Student Registrations",
+            "description": f"New this month: ",
+            "highlight": f"{current_count}",
+        },
+        {
+            "icon": "ni-box-2",
+            "title": "Most Active Module",
+            "description": f"Sessions in this module: ",
+            "highlight": f"{session_count}",
+        },
+        {
+            "icon": "ni-satisfied",
+            "title": "Recent Sessions",
+            "description": f"Latest check-ins: ",
+            "highlight": f"{recent_sessions.count()}",
+        },
+    ]
+
     return render(request, 'dashboard.html', {
         'admin': admin,
         'total_students': total_students,
@@ -174,4 +201,67 @@ def admin_dashboard_view(request):
         'most_active_count': session_count,
         'labels': labels,
         'data': data,
+        'recent_sessions': recent_sessions,
+        'categories': categories,  # pass categories to template
     })
+
+
+from django.shortcuts import render
+from .models import Student  # Adjust based on your model name
+
+def student_profile(request):
+    students = Student.objects.all()
+    return render(request, 'student_profile.html', {'students': students})
+
+def add_student(request):
+    if request.method == 'POST':
+        # Handle form submission
+        pass
+    return render(request, 'add_student.html')
+
+
+
+# views.py
+
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Student
+from .forms import StudentForm  # you'll create this
+
+def edit_student(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('student_profile')  # change this to your actual list view name
+    else:
+        form = StudentForm(instance=student)
+    
+    return render(request, 'edit_student.html', {'form': form, 'student': student})
+
+
+
+
+from django.shortcuts import get_object_or_404, redirect
+
+def delete_student(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    if request.method == "POST":
+        student.delete()
+        return redirect('student_list')
+    # Optionally handle GET if needed (e.g., confirm page)
+
+
+from django.views.decorators.http import require_POST
+from django.contrib import messages
+
+@require_POST
+def bulk_delete_students(request):
+    selected_ids = request.POST.getlist('selected_ids')
+    if selected_ids:
+        Student.objects.filter(id__in=selected_ids).delete()
+        messages.success(request, f"Deleted {len(selected_ids)} students successfully.")
+    else:
+        messages.warning(request, "No students selected.")
+    return redirect('student_profile')
