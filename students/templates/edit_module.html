@@ -251,24 +251,21 @@
         <div class="card">
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
-              <p class="mb-0">Edit Student</p>
+              <p class="mb-0">Edit Module</p>
               <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
             </div>
           </div>
           <div class="card-body">
-            <p class="text-uppercase text-sm">Student Information</p>
+            <p class="text-uppercase text-sm">Module Information</p>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label class="form-control-label">Full Name</label>
-                <input class="form-control" type="text" name="name" value="{{ student.name }}">
+                <label class="form-control-label">Module Name</label>
+                <input class="form-control" required="text" name="name" value="{{ module.name }}">
               </div>
+             
               <div class="col-md-6 mb-3">
-                <label class="form-control-label">Email Address</label>
-                <input class="form-control" type="email" name="email" value="{{ student.email }}">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label class="form-control-label">VP Code</label>
-                <input class="form-control" type="text" name="vp_code" value="{{ student.vp_code }}">
+                <label class="form-control-label">Module Description</label>
+                <input class="form-control" type="text" required="description" value="{{ module.description }}">
               </div>
             </div>
           </div>

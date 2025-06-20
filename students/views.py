@@ -1,3 +1,4 @@
+from django import test
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from students.models import Student
@@ -234,23 +235,13 @@ def edit_student(request, student_id):
         form = StudentForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            return redirect('student_profile')  # change this to your actual list view name
+            return redirect('student_profile') 
     else:
         form = StudentForm(instance=student)
     
     return render(request, 'edit_student.html', {'form': form, 'student': student})
 
 
-
-
-from django.shortcuts import get_object_or_404, redirect
-
-def delete_student(request, student_id):
-    student = get_object_or_404(Student, id=student_id)
-    if request.method == "POST":
-        student.delete()
-        return redirect('student_list')
-    # Optionally handle GET if needed (e.g., confirm page)
 
 
 from django.views.decorators.http import require_POST
@@ -265,3 +256,72 @@ def bulk_delete_students(request):
     else:
         messages.warning(request, "No students selected.")
     return redirect('student_profile')
+
+
+
+
+from django.shortcuts import render, redirect
+from .models import Student
+
+def add_student(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        vp_code = request.POST.get('vp_code')
+        
+        Student.objects.create(name=name, email=email, vp_code=vp_code)
+        return redirect('student_profile')
+
+    return render(request, 'student_add.html')
+
+
+#  module section started
+from .models import Module
+from django.shortcuts import render
+
+def module_list_view(request):
+    modules = Module.objects.all()
+    return render(request, 'module_list.html', {'modules': modules})
+
+# views.py
+
+from django.shortcuts import render, redirect
+from .models import Module
+
+def add_module(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description', '')
+        Module.objects.create(name=name)
+        return redirect('module_list')  # or any URL name you define for listing modules
+
+    return render(request, 'module_add.html')  # HTML form template
+
+
+def edit_module(request, module_id):
+    module = get_object_or_404(Module, id=module_id)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description', '')
+        module.name = name
+        module.description = description
+        module.save()
+        return redirect('module_list')  # or any URL name you define for listing modules
+    
+    return render(request, 'edit_module.html', {'module': module})  # HTML form template
+
+from django.views.decorators.http import require_POST
+from django.contrib import messages
+from django.shortcuts import redirect
+from .models import Module  # Ensure this is imported
+
+@require_POST
+def bulk_delete_modules(request):
+    selected_ids = request.POST.getlist('selected_ids')
+    print("Selected for deletion:", selected_ids)
+    if selected_ids:
+        Module.objects.filter(id__in=selected_ids).delete()
+        messages.success(request, f"Deleted {len(selected_ids)} modules successfully.")
+    else:
+        messages.warning(request, "No modules selected.")
+    return redirect('module_list')
