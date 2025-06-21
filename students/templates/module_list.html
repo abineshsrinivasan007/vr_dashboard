@@ -170,7 +170,29 @@
     <div class="container-fluid py-4">
         
   <!-- Header Section -->
- <div class="d-flex justify-content-between align-items-center px-4 mb-3">
+ <div class="d-fl<!-- Students Nav Item with Submenu -->
+<li class="nav-item">
+  <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#studentsSubmenu" aria-expanded="false" aria-controls="studentsSubmenu">
+    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+      <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+    </div>
+    <span class="nav-link-text ms-1">Students ▾</span>
+  </a>
+
+  <!-- Submenu -->
+  <ul class="nav flex-column ms-4 collapse" id="studentsSubmenu">
+    <li class="nav-item"> 
+      <a class="nav-link" href="">➕ Add Student</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">📋 View Students</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">📈 Student Progress</a>
+    </li>
+  </ul>
+</li>
+ex justify-content-between align-items-center px-4 mb-3">
   <h5 class="mb-0 fw-bold">Module List</h5>
   <a href="{% url 'add_module' %}" class="btn btn-primary">
     ➕ Add Module
@@ -182,7 +204,7 @@
   <!-- Card Start -->
   <div class="row">
     <div class="col-12">
-      <div class="card border-0 shadow-sm rounded-4">
+      <div class="card border-0 shadow-sm rounded-4 col-md-11 col-lg-10 mx-auto ">
 
         <!-- Card Header -->
         <div class="card-header bg-white border-bottom-0 pb-3 px-4">

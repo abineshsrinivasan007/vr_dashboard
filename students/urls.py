@@ -1,7 +1,7 @@
 from django.urls import path
 from students.views import LoginView  
 from .views import StartSessionView, UpdateProgressView, EndSessionView
-from .views import GetModuleList, admin_login_view, admin_dashboard_view, student_profile, add_student, edit_student, bulk_delete_students,add_student, module_list_view,add_module,edit_module, bulk_delete_modules
+from .views import GetModuleList, admin_login_view, admin_dashboard_view, student_profile, add_student, edit_student, bulk_delete_students,add_student, module_list_view,add_module,edit_module, bulk_delete_modules, sessions_list
 
 urlpatterns = [
     path('login/', LoginView.as_view(), name='student_login'),
@@ -21,8 +21,9 @@ urlpatterns = [
     # Module URLs
     path('modules-list/', module_list_view, name='module_list'),
     path('modules/add/', add_module, name='add_module'),
-    
     path('modules/<int:module_id>/edit/', edit_module, name='edit_module'),
-    
     path('modules/delete-selected/', bulk_delete_modules, name='bulk_delete_modules'),
+    #session URLs
+    path('sessions/', sessions_list, name='sessions_list'),
+    
 ]

@@ -70,7 +70,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{% url 'module_list' %}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-settings-gear-65 text-dark text-sm opacity-10"></i>
 
@@ -259,16 +259,16 @@
             <p class="text-uppercase text-sm">Student Information</p>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label class="form-control-label">Full Name</label>
-                <input class="form-control" type="text" name="name" value="{{ student.name }}">
+                <label class="form-control-label">Full Name <span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="name" value="{{ student.name }}" required>
               </div>
               <div class="col-md-6 mb-3">
-                <label class="form-control-label">Email Address</label>
-                <input class="form-control" type="email" name="email" value="{{ student.email }}">
+                <label class="form-control-label">Email Address <span class="text-danger">*</span></label>
+                <input class="form-control" type="email" name="email" value="{{ student.email }}" required>
               </div>
               <div class="col-md-6 mb-3">
-                <label class="form-control-label">VP Code</label>
-                <input class="form-control" type="text" name="vp_code" value="{{ student.vp_code }}">
+                <label class="form-control-label">VP Code<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="vp_code" value="{{ student.vp_code }}" required>
               </div>
             </div>
           </div>

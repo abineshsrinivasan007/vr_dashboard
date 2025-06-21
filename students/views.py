@@ -325,3 +325,12 @@ def bulk_delete_modules(request):
     else:
         messages.warning(request, "No modules selected.")
     return redirect('module_list')
+
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import Session
+
+def sessions_list(request):
+    sessions = Session.objects.select_related('student', 'module').all()
+    return render(request, 'sessions_list.html', {'sessions': sessions})
