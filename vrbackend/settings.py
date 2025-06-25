@@ -42,28 +42,36 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'students',
-    
-
-
+    'captcha',
 ]
+RECAPTCHA_PUBLIC_KEY = '6LcNu2wrAAAAALkFcSfQmqcNH0ypeoio3o1eV0Fs'
+RECAPTCHA_PRIVATE_KEY = '6LcNu2wrAAAAACQdbuM1dYiOkyAE143FMWXW_KFL'
 JAZZMIN_SETTINGS = {
     "site_title": "Training Admin",
     "site_header": "Student Training Dashboard",
     "welcome_sign": "Welcome to the Training System",
-    "theme": "cosmo",  # You can try other Jazzmin themes like 'flatly', 'darkly', 'litera', 'lumen'
-     "theme": None,  # Disable built-in Jazzmin themes to fully use custom CSS
+
+    # Theme for clean, minimal look
+    "theme": "litera",  # 'litera' is a light, elegant, clean theme
+
+    # Custom icons
     "icons": {
         "students.Student": "fas fa-user-graduate",
         "students.Module": "fas fa-cogs",
         "students.Session": "fas fa-clock",
+        "students.Degree": "fas fa-graduation-cap",
+        "students.Department": "fas fa-building",
+        "students.Section": "fas fa-th-list",
+        "students.AdminUser": "fas fa-user-shield",
     },
-     "custom_css": "css/custom_admin.css",
-    # Optional UI tweaks
-    "list_display_links": ["id", "name"],  # clickable columns for Student & Module for better UX
-    "related_modal_active": True,           # show related model popups instead of new tabs
-    "show_ui_builder": False,               # disable UI builder if you want cleaner admin
-}
+    # Optional: Add your own CSS tweaks
+    "custom_css": "css/custom_admin.css",
 
+    # UI Enhancements
+    "list_display_links": ["id", "name"],
+    "related_modal_active": True,
+    "show_ui_builder": False,
+}
 
 STATIC_URL = '/static/'
 

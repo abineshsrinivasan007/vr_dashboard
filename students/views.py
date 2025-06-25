@@ -417,17 +417,6 @@ def sessions_list(request):
     return render(request, 'sessions_list.html', {'sessions': sessions})
 
 
-
-from students.models import Module, Session
-
-def session_list_view(request):
-    modules = Module.objects.all()
-    sessions = Session.objects.select_related('student', 'module').all()
-    return render(request, 'session-list.html', {
-        'sessions': sessions,
-        'modules': modules
-    })
-
 from students.models import Department, Degree
 
 def departments_list_view(request):

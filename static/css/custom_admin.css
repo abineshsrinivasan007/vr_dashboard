@@ -17,3 +17,22 @@ th.column-name, td.field-name {
 table.adminlist {
     font-size: 14px;
 }
+/* Make navbar clean and elegant */
+.navbar {
+    background-color: #bcc1c7 !important;
+    color: rgb(41, 34, 34);
+}
+
+/* Update sidebar look */
+.main-sidebar {
+    background-color: #243447 !important;
+}
+
+.brand-link .brand-text {
+    color: #f8f9fa !important;
+    font-weight: bold;
+}
+
+.content-wrapper {
+    background-color: #f5f7fa;
+}

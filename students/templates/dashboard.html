@@ -53,17 +53,6 @@
             <span class="nav-link-text ms-1">Students</span>
           </a>
         </li>
-<script>
-  function toggleSubMenu(event) {
-    event.preventDefault();
-    const submenu = event.currentTarget.nextElementSibling;
-    submenu.style.display = submen  u.style.display === 'none' ? 'block' : 'none';
-  }
-</script>
-
-<!-- Bootstrap Bundle with Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 
         </li>
         <li class="nav-item">
@@ -317,7 +306,7 @@
                     <p>There’s nothing I really wanted to do in life that I wasn’t able to get good at.</p>
                   </div>
                 </div>
-                <div class="carousel-item h-100" style= "background-image: url('{% static "asset/img copy/carousel-2.jpg" %}');
+                <div class="carousel-item h-100" style="background-image: url('{% static "asset/img copy/carousel-2.jpg" %}')></div>
       background-size: cover;">
                   <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                     <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
@@ -566,12 +555,21 @@
     });
   };
 </script>
-
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/argon-dashboard.min.js?v=2.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function toggleSubMenu(event) {
+    event.preventDefault();
+    const submenu = event.currentTarget.nextElementSibling;
+    submenu.style.display = submen  u.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+<!-- Bootstrap Bundle with Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 
