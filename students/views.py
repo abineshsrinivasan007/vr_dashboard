@@ -80,28 +80,56 @@ class GetModuleList(APIView):
 
 
 # students/views.py
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import AdminUser
 from django.contrib.auth.hashers import check_password
+import requests  # For Google reCAPTCHA
 
 def admin_login_view(request):
     if request.method == 'POST':
         staff_id = request.POST.get('staff_id')
         password = request.POST.get('password')
+        recaptcha_response = request.POST.get('g-recaptcha-response')
 
-        try:
-            user = AdminUser.objects.get(staff_id=staff_id)
-            if check_password(password, user.password):
-                request.session['admin_user_id'] = user.id
-                return redirect('admin_dashboard')  # ✅ Only on success
-            else:
-                messages.error(request, "Invalid password.")
-        except AdminUser.DoesNotExist:
-            messages.error(request, "Staff ID not found.")
+        # ✅ Step 1: Verify reCAPTCHA with Google
+        secret_key = '6LcNu2wrAAAAACQdbuM1dYiOkyAE143FMWXW_KFL'  # Replace with your actual secret key
+        recaptcha_data = {
+            'secret': secret_key,
+            'response': recaptcha_response
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=recaptcha_data)
+        result = r.json()
+
+        if result.get('success'):
+            # ✅ Step 2: Proceed with your login logic
+            try:
+                user = AdminUser.objects.get(staff_id=staff_id)
+                if check_password(password, user.password):
+                    request.session['admin_user_id'] = user.id
+                    return redirect('admin_dashboard')
+                else:
+                    messages.error(request, "Invalid password.")
+            except AdminUser.DoesNotExist:
+                messages.error(request, "Staff ID not found.")
+        else:
+            # ❌ reCAPTCHA failed
+            messages.error(request, "reCAPTCHA verification failed. Please try again.")
 
     return render(request, 'admin-sign-in.html')
 
+
+from django.shortcuts import redirect
+from django.contrib import messages
+
+def admin_logout(request):
+    if 'admin_user_id' not in request.session:
+        messages.error(request, "You are not logged in.")
+        return redirect('admin_login')
+    request.session.flush()  # ✅ Clears session data
+    messages.success(request, "You have successfully logged out.")
+    return redirect('admin_login')  # Replace with your actual login URL name
 
 
 from django.shortcuts import render, redirect
@@ -214,19 +242,13 @@ def student_profile(request):
     students = Student.objects.all()
     return render(request, 'student_profile.html', {'students': students})
 
-def add_student(request):
-    if request.method == 'POST':
-        # Handle form submission
-        pass
-    return render(request, 'add_student.html')
-
 
 
 # views.py
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Student
-from .forms import StudentForm  # you'll create this
+from .form import StudentForm  # you'll create this
 
 def edit_student(request, student_id):
     student = get_object_or_404(Student, id=student_id)
@@ -259,20 +281,76 @@ def bulk_delete_students(request):
 
 
 
-
-from django.shortcuts import render, redirect
-from .models import Student
+from django.core.mail import send_mail
+from django.contrib import messages
+from .models import Degree, Department, Section, Student
 
 def add_student(request):
+    context = {
+        'degrees': Degree.objects.all(),
+        'departments': Department.objects.all(),
+        'sections': Section.objects.all()
+    }
+
     if request.method == 'POST':
         name = request.POST.get('name')
+        degree_id = request.POST.get('degree')
+        department_id = request.POST.get('department')
+        section_id = request.POST.get('section')
         email = request.POST.get('email')
         vp_code = request.POST.get('vp_code')
-        
-        Student.objects.create(name=name, email=email, vp_code=vp_code)
+
+        if not all([degree_id, department_id, section_id]):
+            messages.error(request, "Please select all dropdowns (Degree, Department, Section).")
+            return render(request, 'student_add.html', context)
+
+        try:
+            degree = Degree.objects.get(id=int(degree_id))
+            department = Department.objects.get(id=int(department_id))
+            section = Section.objects.get(id=int(section_id))
+        except (ValueError, Degree.DoesNotExist, Department.DoesNotExist, Section.DoesNotExist) as e:
+            messages.error(request, f"Invalid data selected: {e}")
+            return render(request, 'student_add.html', context)
+
+        student = Student.objects.create(
+            name=name,
+            email=email,
+            vp_code=vp_code,
+            degree=degree,
+            department=department,
+            section=section
+        )
+
+        # ✅ Send welcome email
+        subject = 'Welcome to the Student Portal'
+        message = f'''Hi {name},
+
+Welcome to the AMET Institute of Science and Technology Student Portal!
+
+Your profile has been created successfully.
+
+🎓 Degree: {degree.name}  
+🏢 Department: {department.name}  
+📘 Section: {section.section}  
+🔑 Your VP Code: {vp_code}
+
+You’ll need this VP Code to log in or access your profile.
+
+Best regards,  
+Admin Team
+'''
+        send_mail(
+            subject,
+            message,
+            'abinesh70103@gmail.com',  # Replace with your Gmail (same as EMAIL_HOST_USER)
+            [email],
+            fail_silently=False,
+        )
+
+        messages.success(request, "Student added and email sent successfully.")
         return redirect('student_profile')
 
-    return render(request, 'student_add.html')
+    return render(request, 'student_add.html', context)
 
 
 #  module section started
@@ -281,6 +359,7 @@ from django.shortcuts import render
 
 def module_list_view(request):
     modules = Module.objects.all()
+    
     return render(request, 'module_list.html', {'modules': modules})
 
 # views.py
@@ -293,6 +372,7 @@ def add_module(request):
         name = request.POST.get('name')
         description = request.POST.get('description', '')
         Module.objects.create(name=name)
+        
         return redirect('module_list')  # or any URL name you define for listing modules
 
     return render(request, 'module_add.html')  # HTML form template
@@ -302,7 +382,8 @@ def edit_module(request, module_id):
     module = get_object_or_404(Module, id=module_id)
     if request.method == 'POST':
         name = request.POST.get('name')
-        description = request.POST.get('description', '')
+        description = request.POST.get('description')
+        print("description",description)
         module.name = name
         module.description = description
         module.save()
@@ -334,3 +415,34 @@ from .models import Session
 def sessions_list(request):
     sessions = Session.objects.select_related('student', 'module').all()
     return render(request, 'sessions_list.html', {'sessions': sessions})
+
+
+
+from students.models import Module, Session
+
+def session_list_view(request):
+    modules = Module.objects.all()
+    sessions = Session.objects.select_related('student', 'module').all()
+    return render(request, 'session-list.html', {
+        'sessions': sessions,
+        'modules': modules
+    })
+
+from students.models import Department, Degree
+
+def departments_list_view(request):
+    departments = Department.objects.all()
+    return render(request, 'departments_list.html', {'departments': departments})
+
+
+from django.http import JsonResponse
+
+def load_departments(request):
+    degree_id = request.GET.get('degree_id')
+    departments = Department.objects.filter(degree_id=degree_id).values('id', 'name')
+    return JsonResponse(list(departments), safe=False)
+
+def load_sections(request):
+    department_id = request.GET.get('department_id')
+    sections = Section.objects.filter(department_id=department_id).values('id', 'section')
+    return JsonResponse(list(sections), safe=False)

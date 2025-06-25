@@ -70,7 +70,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{% url 'module_list' %}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-settings-gear-65 text-dark text-sm opacity-10"></i>
 
@@ -79,7 +79,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{% url 'sessions_list' %}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
             </div>
@@ -265,7 +265,8 @@
              
               <div class="col-md-6 mb-3">
                 <label class="form-control-label">Module Description</label>
-                <input class="form-control" type="text" required="description" value="{{ module.description }}">
+               <input class="form-control" type="text" name="description" required value="{{ module.description }}">
+
               </div>
             </div>
           </div>

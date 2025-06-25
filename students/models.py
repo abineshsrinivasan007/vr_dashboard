@@ -1,14 +1,37 @@
 from django.db import models
 from django.utils import timezone
 
+
+class Degree(models.Model):
+    name= models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
+
+class Department(models.Model):
+    degree= models.ForeignKey(Degree, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return f"{self.degree.name} - {self.name}"
+
+class Section(models.Model):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
+    section = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.section
+
 class Student(models.Model):
     name = models.CharField(max_length=100)
+    degree= models.ForeignKey(Degree, on_delete=models.CASCADE, null=True, blank=True)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, null=True, blank=True)
     email = models.EmailField(unique=True, null=True, blank=True) 
     vp_code = models.CharField(max_length=20, unique=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name
+
 class Module(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)

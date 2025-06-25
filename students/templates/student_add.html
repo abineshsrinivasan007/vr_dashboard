@@ -263,6 +263,41 @@
                 <input class="form-control" type="text" name="name" value="{{ student.name }}" required>
               </div>
               <div class="col-md-6 mb-3">
+                <label class="form-control-label">Degree<span class="text-danger">*</span></label>
+              
+                <!-- Degree Dropdown -->
+            <select class="form-control" id="degree" name="degree" required>
+  <option value="" disabled selected>Select Degree</option>
+  {% for degree in degrees %}
+    <option value="{{ degree.id }}" {% if student.degree.id == degree.id %}selected{% endif %}>{{ degree.name }}</option>
+  {% endfor %}
+</select>
+
+<!-- Department Dropdown -->
+
+
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label">Department <span class="text-danger">*</span></label>
+                <select class="form-control" id="department" name="department" required>
+  <option value="" disabled selected>Select Department</option>
+  {% for department in departments %}
+    <option value="{{ department.id }}" {% if student.department.id == department.id %}selected{% endif %}>{{ department.name }}</option>
+  {% endfor %}
+</select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label">Section <span class="text-danger">*</span></label>
+                <select class="form-control" id="section" name="section" >
+                    <option value="" disabled selected>Select Section</option>
+                    {% for section in sections %}
+                      <option value="{{ section.id }}" {% if student.section.id == section.id %}selected{% endif %}>{{ section.section }}
+                    </option>
+                    {% endfor %}
+              </select>
+              
+              </div>
+              <div class="col-md-6 mb-3">
                 <label class="form-control-label">Email Address <span class="text-danger">*</span></label>
                 <input class="form-control" type="email" name="email" value="{{ student.email }}" required>
               </div>
@@ -375,5 +410,49 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/argon-dashboard.min.js?v=2.1.0"></script>
+
+<!-- script for add student process -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const degreeId = document.getElementById('degree');
+  console.log
+  const departmentId = "{{ student.department.id }}";
+  const sectionId = "{{ student.section.id }}";
+  console.log("Degree ID:", degreeId);
+  console.log("Department ID:", departmentId);
+  
+
+  if (degreeId) {
+    fetch(`/ajax/load-departments/?degree_id=${degreeId}`)
+      .then(response => response.json())
+      .then(data => {
+        const departmentSelect = document.getElementById('department');
+        departmentSelect.innerHTML = '<option value="">Select Department</option>';
+        data.forEach(item => {
+          const selected = item.id == departmentId ? 'selected' : '';
+          departmentSelect.innerHTML += `<option value="${item.id}" ${selected}>${item.name}</option>`;
+        });
+
+        // Trigger loading of sections after departments are loaded
+        if (departmentId) {
+          fetch(`/ajax/load-sections/?department_id=${departmentId}`)
+            .then(response => response.json())
+            .then(data => {
+              const sectionSelect = document.getElementById('section');
+              sectionSelect.innerHTML = '<option value="">Select Section</option>';
+              data.forEach(item => {
+                const selected = item.id == sectionId ? 'selected' : '';
+                sectionSelect.innerHTML += `<option value="${item.id}" ${selected}>${item.section}</option>`;
+              });
+            });
+          if (sectionId) {
+            document.getElementById('section').value = sectionId;
+          }
+        
+        }
+      });
+  }
+});
+</script>
 </body>
 </html>

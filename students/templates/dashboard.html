@@ -19,8 +19,7 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- CSS Files -->
   <link id="pagestyle" href="{% static 'css/argon-dashboard.css' %}" rel="stylesheet" />
-  
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -46,34 +45,19 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
-<!-- Students Nav Item with Submenu -->
 <li class="nav-item">
-  <a class="nav-link" href="#" onclick="toggleSubMenu(event)">
-    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-      <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-    </div>
-    <span class="nav-link-text ms-1">Students ▾</span>
-  </a>
-  
-  <!-- Submenu -->
-  <ul class="nav flex-column ms-4 submenu" style="display: none;">
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'add_student' %}">➕ Add Student</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'student_profile' %}">📋 View Students</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="">📈 Student Progress</a>
-    </li>
-  </ul>
-</li>
-
+          <a class="nav-link " href="{% url 'student_profile' %}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Students</span>
+          </a>
+        </li>
 <script>
   function toggleSubMenu(event) {
     event.preventDefault();
     const submenu = event.currentTarget.nextElementSibling;
-    submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
+    submenu.style.display = submen  u.style.display === 'none' ? 'block' : 'none';
   }
 </script>
 
@@ -89,7 +73,6 @@
   </div>
   <span class="nav-link-text ms-1">Modules</span>
 </a>
-
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{% url 'sessions_list' %}">
@@ -164,9 +147,9 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="{% url 'admin_login' %}" class="nav-link text-white font-weight-bold px-0">
+              <a href="{% url 'admin_logout' %}" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
+                <span class="d-sm-inline d-none">Sign out</span>
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -312,7 +295,7 @@
               <h6 class="text-capitalize">Active Students</h6>
               <p class="text-sm mb-0">
                 <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">4% more</span> in 2021
+                <span class="font-weight-bold">4% more</span> last week
               </p>
             </div>
             <div class="chart">
@@ -344,16 +327,7 @@
                     <p>That’s my skill. I’m not really specifically talented at anything except for the ability to learn.</p>
                   </div>
                 </div>
-                <div class="carousel-item h-100" style="background-image: url('../assets/img/carousel-3.jpg');
-      background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-trophy text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Share with us your design tips!</h5>
-                    <p>Don’t be afraid to be wrong because you can’t learn anything from a compliment.</p>
-                  </div>
-                </div>
+                
               </div>
               <button class="carousel-control-prev w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -404,7 +378,6 @@
     </table>
   </div>
 </div>
-
         </div>
         <div class="col-lg-5">
   <div class="card">

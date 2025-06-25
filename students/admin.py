@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student, Module, Session, AdminUser
+from .models import Student, Module, Session, AdminUser, Degree, Department, Section
 
 
 @admin.register(Student)
@@ -8,7 +8,27 @@ class StudentAdmin(admin.ModelAdmin):
     search_fields = ('name', 'vp_code','email')
     list_display_links = ('id', 'name')  # Make id and name clickable for editing
     list_per_page = 20  # pagination for better readability
+@admin.register(Degree)
+class DegreeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    search_fields = ('name',)
+    list_display_links = ('id', 'name')
+    list_per_page = 20
 
+@admin.register(Department)
+class DepartmentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'degree', 'name')
+    search_fields = ('degree__name', 'name')
+    list_display_links = ('id', 'degree', 'name')
+    list_per_page = 20
+
+@admin.register(Section)
+class SectionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'section')
+    search_fields = ('section',)
+    list_display_links = ('id', 'section')
+    list_per_page = 20
+    
 @admin.register(Module)
 class ModuleAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')

@@ -1,7 +1,7 @@
 from django.urls import path
 from students.views import LoginView  
 from .views import StartSessionView, UpdateProgressView, EndSessionView
-from .views import GetModuleList, admin_login_view, admin_dashboard_view, student_profile, add_student, edit_student, bulk_delete_students,add_student, module_list_view,add_module,edit_module, bulk_delete_modules, sessions_list
+from .views import GetModuleList, admin_login_view, admin_dashboard_view, student_profile, add_student, edit_student, bulk_delete_students,add_student, module_list_view,add_module,edit_module, bulk_delete_modules, sessions_list, load_departments, load_sections,admin_logout
 
 urlpatterns = [
     path('login/', LoginView.as_view(), name='student_login'),
@@ -14,7 +14,6 @@ urlpatterns = [
     path('admin-dashboard/', admin_dashboard_view, name='admin_dashboard'),
     # Student URLs
     path('students/', student_profile, name='student_profile'),
-    path('students/add/', add_student, name='add_student'), 
     path('students/<int:student_id>/edit/',edit_student, name='edit_student'),
     path('students/delete-selected/', bulk_delete_students, name='bulk_delete_students'),
     path('add-student/', add_student, name='add_student'),
@@ -26,4 +25,11 @@ urlpatterns = [
     #session URLs
     path('sessions/', sessions_list, name='sessions_list'),
     
+    path('ajax/load-departments/', load_departments, name='ajax_load_departments'),
+    path('ajax/load-sections/', load_sections, name='ajax_load_sections'),
+
+
+    path('signout/',admin_logout, name='admin_logout'),
+
+
 ]

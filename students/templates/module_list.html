@@ -60,7 +60,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{% url 'sessions_list' %}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
             </div>
@@ -169,15 +169,7 @@
     <!-- End Navbar -->
     <div class="container-fluid py-4">
         
-  <!-- Header Section -->
- <div class="d-fl<!-- Students Nav Item with Submenu -->
-<li class="nav-item">
-  <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#studentsSubmenu" aria-expanded="false" aria-controls="studentsSubmenu">
-    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-      <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-    </div>
-    <span class="nav-link-text ms-1">Students ▾</span>
-  </a>
+
 
   <!-- Submenu -->
   <ul class="nav flex-column ms-4 collapse" id="studentsSubmenu">
@@ -192,13 +184,14 @@
     </li>
   </ul>
 </li>
-ex justify-content-between align-items-center px-4 mb-3">
-  <h5 class="mb-0 fw-bold">Module List</h5>
-  <a href="{% url 'add_module' %}" class="btn btn-primary">
-    ➕ Add Module
-  </a>
-</div>
 
+
+  </div>
+  <div class="d-flex justify-content-between align-items-center px-4 mb-3">
+    <h5 class="mb-0 fw-bold">Session List</h5>
+    <a href="{% url 'add_module'%}" class="btn btn-primary">
+      ➕ Add Module
+    </a>
   </div>
 
   <!-- Card Start -->
@@ -214,7 +207,7 @@ ex justify-content-between align-items-center px-4 mb-3">
                 type="text"
                 id="studentSearch"
                 class="form-control form-control-sm"
-                placeholder="🔍 Search by name or email"
+                placeholder="🔍 Search by Modules"
                 onkeyup="filterStudents()"
               />
             </div>
@@ -260,7 +253,7 @@ ex justify-content-between align-items-center px-4 mb-3">
                 </td>
                 <td>
                     <a href="{% url 'edit_module' module.id %}" class="mb-0 text-sm">
-                    {{ module.Description}}
+                    {{ module.description}}
                     </a>
                 </td>
               </tr>
@@ -380,10 +373,11 @@ ex justify-content-between align-items-center px-4 mb-3">
     const input = document.getElementById("studentSearch");
     const filter = input.value.toLowerCase();
     const rows = document.querySelectorAll("table tbody tr");
+    console.log(rows);
 
     rows.forEach(row => {
-      const nameElem = row.querySelector("td:nth-child(3) h6 a");
-      const emailElem = row.querySelector("td:nth-child(3) p");
+      const nameElem = row.querySelector("td:nth-child(2) a");
+      const emailElem = row.querySelector("td:nth-child(2) p");
 
       const name = nameElem?.textContent.toLowerCase() || "";
       const email = emailElem?.textContent.toLowerCase() || "";

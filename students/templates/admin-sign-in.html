@@ -34,6 +34,8 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- CSS Files -->
   <link id="pagestyle" href="{% static 'css/argon-dashboard.css' %}" rel="stylesheet" />
+
+
 </head>
 
 <body class="">
@@ -89,16 +91,25 @@
                     </div>
               </form> -->
               <form method="POST">
-                      {% csrf_token %}
-                      <div class="mb-3">
-                      <input type="text" name="staff_id" class="form-control form-control-lg" placeholder="Staff ID" required>
-                      </div>
-                      <div class="mb-3">
-                      <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required>
-                      </div>
-                      <div class="text">
-                      <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
+  {% csrf_token %}
+  <div class="mb-3">
+    <input type="text" name="staff_id" class="form-control form-control-lg" placeholder="Staff ID" required>
+  </div>
+  <div class="mb-3">
+    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required>
+  </div>
+  
+  <div class="mb-3">
+    <!-- Google reCAPTCHA widget -->
+    <div class="g-recaptcha" data-sitekey="6LcNu2wrAAAAALkFcSfQmqcNH0ypeoio3o1eV0Fs"></div>
+  </div>
+  <div class="text">
+    <button type="submit" class="btn btn-primary">Login</button>
+  </div>
+</form>
+
+<!-- Load reCAPTCHA JS -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
                     {% if error %}
                       <p style="color:red;">{{ error }}</p>
