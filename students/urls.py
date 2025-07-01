@@ -24,11 +24,10 @@ urlpatterns = [
     path('modules/delete-selected/', bulk_delete_modules, name='bulk_delete_modules'),
     #session URLs
     path('sessions/', sessions_list, name='sessions_list'),
-    
+    # AJAX URLs
     path('ajax/load-departments/', load_departments, name='ajax_load_departments'),
     path('ajax/load-sections/', load_sections, name='ajax_load_sections'),
-
-
+    # Admin Logout
     path('signout/',admin_logout, name='admin_logout'),
 
 

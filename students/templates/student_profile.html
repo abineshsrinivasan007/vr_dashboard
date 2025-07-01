@@ -248,6 +248,7 @@
           <th class="ps-4"><input type="checkbox" id="select-all" /></th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+          
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">VP Code</th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Email</th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Created At</th>
@@ -260,7 +261,9 @@
           <td class="ps-4">
             <input type="checkbox" name="selected_ids" value="{{ student.id }}">
           </td>
-          <td><p class="text-xs font-weight-bold mb-0">{{ student.id }}</p></td>
+          <td>
+            <p class="text-xs font-weight-bold mb-0">{{ student.id }}</p>
+          </td>
           <td>
             <div class="d-flex px-2 py-1 align-items-center">
               <div class="d-flex flex-column justify-content-center">

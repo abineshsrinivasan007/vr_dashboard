@@ -64,6 +64,7 @@ JAZZMIN_SETTINGS = {
         "students.Section": "fas fa-th-list",
         "students.AdminUser": "fas fa-user-shield",
     },
+
     # Optional: Add your own CSS tweaks
     "custom_css": "css/custom_admin.css",
 
