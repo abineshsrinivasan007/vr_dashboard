@@ -4,6 +4,10 @@ from rest_framework.response import Response
 from students.models import Student
 
 
+
+
+
+
 class LoginView(APIView):
     def post(self, request):
         vp_code = request.data.get('vp_code')
@@ -131,13 +135,13 @@ def admin_logout(request):
     messages.success(request, "You have successfully logged out.")
     return redirect('admin_login')  # Replace with your actual login URL name
 
-
 from django.shortcuts import render, redirect
 from django.db.models import Count
 from django.db.models.functions import TruncMonth
 from students.models import Student, Module, Session
 from .models import AdminUser
 from datetime import datetime
+from django.utils import timezone
 
 def admin_dashboard_view(request):
     admin_id = request.session.get('admin_user_id')
@@ -145,7 +149,8 @@ def admin_dashboard_view(request):
         return redirect('admin_login')
 
     admin = AdminUser.objects.get(id=admin_id)
-        # Recent active students (latest 5 check-ins)
+
+    # Recent active students (latest 5 check-ins)
     recent_sessions = (
         Session.objects.select_related('student', 'module')
         .order_by('-check_in')[:5]
@@ -156,8 +161,8 @@ def admin_dashboard_view(request):
     total_modules = Module.objects.count()
     total_sessions = Session.objects.count()
 
-    # Students joined per month (dynamic)
-    students_by_month = (
+    # Students joined per month
+    students_by_month = list( 
         Student.objects.annotate(month=TruncMonth('created_at'))
         .values('month')
         .annotate(count=Count('id'))
@@ -167,12 +172,12 @@ def admin_dashboard_view(request):
     labels = [entry['month'].strftime('%b %Y') for entry in students_by_month]
     data = [entry['count'] for entry in students_by_month]
 
-    # Dynamically get latest month and previous month counts
-    current_month = datetime.now().replace(day=1)
+    # Current month count
+    current_month = timezone.now().replace(day=1)
     current_count = Student.objects.filter(created_at__gte=current_month).count()
 
-    # previous month logic
-    if students_by_month and len(students_by_month) >= 2:
+    # Previous month count safely
+    if len(students_by_month) >= 2:
         previous_count = students_by_month[-2]['count']
     else:
         previous_count = 0
@@ -203,19 +208,19 @@ def admin_dashboard_view(request):
         {
             "icon": "ni-tag",
             "title": "Student Registrations",
-            "description": f"New this month: ",
+            "description": "New this month: ",
             "highlight": f"{current_count}",
         },
         {
             "icon": "ni-box-2",
             "title": "Most Active Module",
-            "description": f"Sessions in this module: ",
+            "description": "Sessions in this module: ",
             "highlight": f"{session_count}",
         },
         {
             "icon": "ni-satisfied",
             "title": "Recent Sessions",
-            "description": f"Latest check-ins: ",
+            "description": "Latest check-ins: ",
             "highlight": f"{recent_sessions.count()}",
         },
     ]
@@ -231,7 +236,7 @@ def admin_dashboard_view(request):
         'labels': labels,
         'data': data,
         'recent_sessions': recent_sessions,
-        'categories': categories,  # pass categories to template
+        'categories': categories,
     })
 
 
@@ -371,7 +376,7 @@ def add_module(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         description = request.POST.get('description', '')
-        Module.objects.create(name=name)
+        Module.objects.create(name=name,description=description)
         
         return redirect('module_list')  # or any URL name you define for listing modules
 

@@ -177,14 +177,12 @@
                 <i class="fa fa-bell cursor-pointer"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end px-2 py-3 ms-n4" aria-labelledby="dropdownMenuButton">
-                
                 <li class="mb-2">
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
                         <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3">
-                      </div>
-                      
+                      </div>  
                     </div>
                   </a>
                 </li>
@@ -206,7 +204,6 @@
                           </g>
                         </svg>
                       </div>
-                      
                     </div>
                   </a>
                 </li>
@@ -217,6 +214,7 @@
       </div>
     </nav>
     <!-- End Navbar -->
+
     <!-- Font Awesome CDN (for avatar icon) -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
@@ -264,7 +262,6 @@
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-control-label">Degree<span class="text-danger">*</span></label>
-              
                 <!-- Degree Dropdown -->
             <select class="form-control" id="degree" name="degree" required>
   <option value="" disabled selected>Select Degree</option>
@@ -272,10 +269,7 @@
     <option value="{{ degree.id }}" {% if student.degree.id == degree.id %}selected{% endif %}>{{ degree.name }}</option>
   {% endfor %}
 </select>
-
 <!-- Department Dropdown -->
-
-
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-control-label">Department <span class="text-danger">*</span></label>
@@ -312,15 +306,11 @@
     </div>
   </div>
 </div>
-
-       
       </div>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
-              
-
           </div>
         </div>
       </footer>
@@ -412,47 +402,51 @@
   <script src="../assets/js/argon-dashboard.min.js?v=2.1.0"></script>
 
 <!-- script for add student process -->
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const degreeId = document.getElementById('degree');
-  console.log
-  const departmentId = "{{ student.department.id }}";
-  const sectionId = "{{ student.section.id }}";
-  console.log("Degree ID:", degreeId);
-  console.log("Department ID:", departmentId);
-  
+  // When Degree is selected, load Departments
+  $('#degree').change(function () {
+    var degreeId = $(this).val();
 
-  if (degreeId) {
-    fetch(`/ajax/load-departments/?degree_id=${degreeId}`)
-      .then(response => response.json())
-      .then(data => {
-        const departmentSelect = document.getElementById('department');
-        departmentSelect.innerHTML = '<option value="">Select Department</option>';
-        data.forEach(item => {
-          const selected = item.id == departmentId ? 'selected' : '';
-          departmentSelect.innerHTML += `<option value="${item.id}" ${selected}>${item.name}</option>`;
+    $.ajax({
+      url: "{% url 'ajax_load_departments' %}",  // This URL returns departments
+      data: {
+        'degree_id': degreeId
+      },
+      success: function (data) {
+        $("#department").html('<option value="">Select Department</option>');
+        $("#section").html('<option value="">Select Section</option>'); // Reset section too
+
+        data.forEach(function (department) {
+          $("#department").append('<option value="' + department.id + '">' + department.name + '</option>');
         });
+      }
+    });
+  });
 
-        // Trigger loading of sections after departments are loaded
-        if (departmentId) {
-          fetch(`/ajax/load-sections/?department_id=${departmentId}`)
-            .then(response => response.json())
-            .then(data => {
-              const sectionSelect = document.getElementById('section');
-              sectionSelect.innerHTML = '<option value="">Select Section</option>';
-              data.forEach(item => {
-                const selected = item.id == sectionId ? 'selected' : '';
-                sectionSelect.innerHTML += `<option value="${item.id}" ${selected}>${item.section}</option>`;
-              });
-            });
-          if (sectionId) {
-            document.getElementById('section').value = sectionId;
-          }
-        
-        }
-      });
-  }
-});
+  // When Department is selected, load Sections
+  $('#department').change(function () {
+    var departmentId = $(this).val();
+
+    $.ajax({
+      url: "{% url 'ajax_load_sections' %}",  // This URL returns sections
+      data: {
+        'department_id': departmentId
+      },
+      success: function (data) {
+        $("#section").html('<option value="">Select Section</option>');
+        data.forEach(function (section) {
+          $("#section").append('<option value="' + section.id + '">' + section.section + '</option>');
+        });
+      }
+    });
+  });
 </script>
+
 </body>
 </html>
