@@ -252,22 +252,32 @@ def student_profile(request):
 # views.py
 
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Student
-from .form import StudentForm  # you'll create this
+from .models import Student, Degree, Department, Section
+from .form import StudentForm
 
 def edit_student(request, student_id):
     student = get_object_or_404(Student, id=student_id)
-    
+
     if request.method == 'POST':
         form = StudentForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            return redirect('student_profile') 
+            return redirect('student_profile')  # or wherever you want to redirect
     else:
         form = StudentForm(instance=student)
-    
-    return render(request, 'edit_student.html', {'form': form, 'student': student})
 
+    # Pass these to use in your manual form dropdowns
+    degrees = Degree.objects.all()
+    departments = Department.objects.all()
+    sections = Section.objects.all()
+
+    return render(request, 'edit_student.html', {
+        'form': form,
+        'student': student,
+        'degrees': degrees,
+        'departments': departments,
+        'sections': sections
+    })
 
 
 
@@ -289,12 +299,11 @@ def bulk_delete_students(request):
 from django.core.mail import send_mail
 from django.contrib import messages
 from .models import Degree, Department, Section, Student
-
 def add_student(request):
     context = {
         'degrees': Degree.objects.all(),
         'departments': Department.objects.all(),
-        'sections': Section.objects.all()
+        'sections': Section.objects.all(), 
     }
 
     if request.method == 'POST':
@@ -304,7 +313,15 @@ def add_student(request):
         section_id = request.POST.get('section')
         email = request.POST.get('email')
         vp_code = request.POST.get('vp_code')
-
+        context={
+            'name': name,
+            'degree_id': degree_id,
+            'department_id': department_id,
+            'section_id': section_id,
+            'email': email,
+            'vp_code': vp_code,
+        }
+        print('context',context)
         if not all([degree_id, department_id, section_id]):
             messages.error(request, "Please select all dropdowns (Degree, Department, Section).")
             return render(request, 'student_add.html', context)
@@ -314,7 +331,16 @@ def add_student(request):
             department = Department.objects.get(id=int(department_id))
             section = Section.objects.get(id=int(section_id))
         except (ValueError, Degree.DoesNotExist, Department.DoesNotExist, Section.DoesNotExist) as e:
-            messages.error(request, f"Invalid data selected: {e}")
+            messages.error(request, f"Invalid selection: {e}")
+            return render(request, 'student_add.html', context)
+
+        # Validate hierarchy
+        if department.degree.id != degree.id:
+            messages.error(request, "Selected department does not belong to the chosen degree.")
+            return render(request, 'student_add.html', context)
+
+        if section.department.id != department.id:
+            messages.error(request, "Selected section does not belong to the chosen department.")
             return render(request, 'student_add.html', context)
 
         student = Student.objects.create(
@@ -325,8 +351,7 @@ def add_student(request):
             department=department,
             section=section
         )
-
-        # ✅ Send welcome email
+        # Send welcome email
         subject = 'Welcome to the Student Portal'
         message = f'''Hi {name},
 
@@ -334,23 +359,27 @@ Welcome to the AMET Institute of Science and Technology Student Portal!
 
 Your profile has been created successfully.
 
-🎓 Degree: {degree.name}  
-🏢 Department: {department.name}  
-📘 Section: {section.section}  
+🎓 Degree: {degree.name}
+🏢 Department: {department.name}
+📘 Section: {section.section}
 🔑 Your VP Code: {vp_code}
 
 You’ll need this VP Code to log in or access your profile.
 
-Best regards,  
+Best regards,
 Admin Team
 '''
-        send_mail(
-            subject,
-            message,
-            'abinesh70103@gmail.com',  # Replace with your Gmail (same as EMAIL_HOST_USER)
-            [email],
-            fail_silently=False,
-        )
+        try:
+            send_mail(
+                subject,
+                message,
+                'abinesh70103@gmail.com',
+                [email],
+                fail_silently=False,
+            )
+        except Exception as e:
+            messages.warning(request, f"Student created but email sending failed: {e}")
+            return redirect('student_profile')
 
         messages.success(request, "Student added and email sent successfully.")
         return redirect('student_profile')
@@ -413,20 +442,54 @@ def bulk_delete_modules(request):
     return redirect('module_list')
 
 
+    # Prepare filter values
+    degrees = Degree.objects.values_list('name', flat=True).distinct()
+    departments = Department.objects.all()
+    if degree_name:
+        departments = departments.filter(degree__name=degree_name)
+    departments = departments.values_list('name', flat=True).distinct()
 
-from django.shortcuts import render, get_object_or_404
+    sections = Section.objects.all()
+    if department_name:
+        sections = sections.filter(department__name=department_name)
+    sections = sections.values_list('section', flat=True).distinct()
+
+    return render(request, 'sessions_list.html', {
+        'sessions': sessions,
+        'degrees': degrees,
+        'departments': departments,
+        'sections': sections,
+        'selected_degree': degree_name,
+        'selected_department': department_name,
+        'selected_section': section_name,
+    })
+
+
+
+from django.shortcuts import render
 from .models import Session
 
 def sessions_list(request):
-    sessions = Session.objects.select_related('student', 'module').all()
-    return render(request, 'sessions_list.html', {'sessions': sessions})
+    sessions = Session.objects.select_related(
+    'student',
+    'student__degree',
+    'student__department',
+    'student__section',
+    'module'
+).all()
 
+
+    context = {
+        'sessions': sessions,
+    }
+    return render(request, 'sessions_list.html', context)
 
 from students.models import Department, Degree
 
 def departments_list_view(request):
     departments = Department.objects.all()
     return render(request, 'departments_list.html', {'departments': departments})
+
 
 
 from django.http import JsonResponse

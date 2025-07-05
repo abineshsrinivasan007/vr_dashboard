@@ -244,12 +244,13 @@
 <div class="container-fluid py-4">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <form method="POST">
+      <form method="POST" action="{% url 'add_student' %}">
+
         {% csrf_token %}
         <div class="card">
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
-              <p class="mb-0">Edit Student</p>
+              <p class="mb-0">Add Student</p>
               <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
             </div>
           </div>
@@ -274,11 +275,12 @@
               <div class="col-md-6 mb-3">
                 <label class="form-control-label">Department <span class="text-danger">*</span></label>
                 <select class="form-control" id="department" name="department" required>
-  <option value="" disabled selected>Select Department</option>
-  {% for department in departments %}
-    <option value="{{ department.id }}" {% if student.department.id == department.id %}selected{% endif %}>{{ department.name }}</option>
-  {% endfor %}
-</select>
+                  <option value="" disabled selected>Select Department</option>
+                {% for department in departments %}
+                  <option value="{{ department.id }}" {% if student.department.id == department.id %}selected{% endif %}>{{ department.name }}
+                  </option>
+                  {% endfor %}
+                </select>
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-control-label">Section <span class="text-danger">*</span></label>

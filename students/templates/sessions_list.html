@@ -224,79 +224,128 @@
           </div>
         </div>
 
-        <form method="POST" action="">
-          {% csrf_token %}
-          <div class="px-4 mb-3 d-flex justify-content-between align-items-center">
-            <h5 class="mb-0 fw-bold">Session List</h5>
-            <button type="submit"
-                    class="btn btn-outline-danger btn-sm rounded-pill px-4 py-2 shadow-sm fw-semibold"
-                    style="font-size: 14px;"
-                    onclick="return confirm('Are you sure you want to delete the selected sessions?')">
-              🗑️ Delete Selected
-            </button>
+      <form method="get" class="row g-2 px-4 mb-3">
+  <div class="row px-4 mb-3">
+    <div class="col-md-4">
+      <label for="degree">Degree</label>
+      <select name="degree" id="degree" class="form-control">
+        <option value="">-- All Degrees --</option>
+        {% for degree in degrees %}
+          <option value="{{ degree }}" {% if selected_degree == degree %}selected{% endif %}>{{ degree }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label for="department">Department</label>
+      <select name="department" id="department" class="form-control">
+        <option value="">-- All Departments --</option>
+        {% for dept in departments %}
+          <option value="{{ dept }}" {% if selected_department == dept %}selected{% endif %}>{{ dept }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label for="section">Section</label>
+      <select name="section" id="section" class="form-control">
+        <option value="">-- All Sections --</option>
+        {% for sec in sections %}
+          <option value="{{ sec }}" {% if selected_section == sec %}selected{% endif %}>{{ sec }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="px-4 mb-3">
+    <button type="submit" class="btn btn-primary">Apply Filters</button>
+    <a href="{% url 'sessions_list' %}" class="btn btn-secondary">Reset</a>
+  </div>
+
+  <!-- Table -->
+ <div class="table-responsive p-0">
+  <table class="table align-items-center mb-0">
+    <thead class="bg-light">
+      <tr>
+        <th class="ps-4"><input type="checkbox" id="select-all" /></th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name & VPCode</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Module</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Degree & Dep</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Section</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Progress</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for session in sessions %}
+      <tr>
+        <td class="ps-4">
+          <input type="checkbox" name="selected_ids" value="{{ session.id }}">
+        </td>
+        <td><p class="text-xs font-weight-bold mb-0">{{ session.id }}</p></td>
+        <td>
+          <div class="d-flex px-2 py-1 align-items-center">
+            <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm">
+                <a href="{% url 'edit_student' session.student.id %}">{{ session.student.name }}</a>
+              </h6>
+              <p class="text-xs text-secondary mb-0">{{ session.student.vp_code }}</p>
+            </div>
           </div>
-          <div class="table-responsive p-0">
-            <table class="table align-items-center mb-0">
-              <thead class="bg-light">
-                <tr>
-                  <th class="ps-4"><input type="checkbox" id="select-all" /></th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Student</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Module Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">check-in</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">check-out</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Progress</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for session in sessions %}
-                <tr>
-                  <td class="ps-4">
-                    <input type="checkbox" name="selected_ids" value="{{ session.id }}">
-                  </td>
-                  <td><p class="text-xs font-weight-bold mb-0">{{ session.id }}</p></td>
-                  <td>
-                    <div class="d-flex px-2 py-1 align-items-center">
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">
-                          <a href="">{{ session.student }}</a>
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">{{ session }}</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="text-center"><p class="text-sm font-weight-bold mb-0">{{ session.module }}</p></td>
-                  <td class="text-center"><p class="text-sm text-secondary mb-0">{{ session.check_in }}</p></td>
-                  <td class="text-center"><p class="text-sm text-secondary mb-0">{{ session.check_out }}</p></td>
-                 
-<td class="align-middle text-center">
-  <div class="d-flex align-items-center justify-content-center">
-    <span class="me-2 text-xs font-weight-bold">{{ session.progress }}%</span>
-    <div>
-      <div class="progress">
-        <div class="progress-bar bg-gradient-info" role="progressbar"
-             aria-valuenow="{{ session.progress }}" aria-valuemin="0" aria-valuemax="100"
-             style="width: {{ session.progress }}%"></div>
-      </div>
+        </td>
+        <td class="text-center"><p class="text-sm font-weight-bold mb-0">{{ session.module.name }}</p></td>
+<td>
+  <div class="d-flex px-2 py-1 align-items-center">
+    <div class="d-flex flex-column justify-content-center">
+      <h6 class="mb-0 text-sm">
+        {% if session.student.degree %}
+          <a href="">{{ session.student.degree.name }}</a>
+        {% else %}
+          No Degree
+        {% endif %}
+      </h6>
+      <p class="text-xs text-secondary mb-0">
+        {% if session.student.department %}
+          {{ session.student.department.name }}
+        {% else %}
+          No Department
+        {% endif %}
+      </p>
     </div>
   </div>
 </td>
 
-                {% empty %}
-                <tr>
-                  <td colspan="7" class="text-center py-4"><p class="text-muted mb-0">No sessions found.</p></td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </form>
+<td class="text-center">
+  <p class="text-sm text-secondary mb-0">
+    {% if session.student.section %}
+      {{ session.student.section.section }}
+    {% else %}
+      No Section
+    {% endif %}
+  </p>
+</td>
 
-        
+        <td class="text-center">
+          <p class="text-sm text-secondary mb-0">{{ session.progress }}%</p>
+        </td>          
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="7" class="text-center py-4"><p class="text-muted mb-0">No sessions found.</p></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</form>
+
+
+
       </div>
     </div>
   </div>     
-
   <footer class="footer pt-3">
     <div class="container-fluid">
       <div class="row align-items-center justify-content-lg-between">
@@ -305,7 +354,6 @@
     </div>
   </footer>
 </div>
-
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -313,7 +361,6 @@
     </a>
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3 ">
-        
         <div class="float-end mt-4">
           <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
             <i class="fa fa-close"></i>
