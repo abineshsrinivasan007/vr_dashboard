@@ -503,3 +503,89 @@ def load_sections(request):
     department_id = request.GET.get('department_id')
     sections = Section.objects.filter(department_id=department_id).values('id', 'section')
     return JsonResponse(list(sections), safe=False)
+
+
+
+
+# views.py
+import openpyxl
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required, user_passes_test
+from .models import Student
+
+@user_passes_test(lambda u: u.is_staff)
+@login_required
+def export_student_report(request):
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Student Report"
+
+    # Headers
+    ws.append(["Name", "VP Code", "Degree", "Department", "Section", "Email"])
+
+    # Data
+    for student in Student.objects.select_related('degree', 'department', 'section'):
+        ws.append([
+            student.name,
+            student.vp_code,
+            student.degree.name if student.degree else '',
+            student.department.name if student.department else '',
+            student.section.section if student.section else '',
+            student.email if student.email else '',
+        ])
+
+    # Return Excel file
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=student_report.xlsx'
+    wb.save(response)
+    return response
+
+
+import openpyxl
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required, user_passes_test
+from .models import Session
+
+@login_required
+@user_passes_test(lambda u: u.is_staff)
+def export_session_report(request):
+ 
+    if request.method == 'GET':
+        wb = openpyxl.Workbook()
+        ws = wb.active
+        ws.title = "Session Report"
+
+        # Header row
+        ws.append([
+            "Student Name", "VP Code", "Module", "Degree",
+            "Department", "Section", "Check-In", "Check-Out", "Progress"
+        ])
+
+        # Session data
+        sessions = Session.objects.select_related(
+            'student', 'module', 'student__degree',
+            'student__department', 'student__section'
+        )
+        print(f"Exporting {sessions.count()} sessions")
+
+        for session in sessions:
+            ws.append([
+                session.student.name,
+                session.student.vp_code,
+                session.module.name,
+                session.student.degree.name if session.student.degree else '',
+                session.student.department.name if session.student.department else '',
+                session.student.section.section if session.student.section else '',
+                session.check_in.strftime('%Y-%m-%d %H:%M:%S') if session.check_in else '',
+                session.check_out.strftime('%Y-%m-%d %H:%M:%S') if session.check_out else '',
+                f"{session.progress}%",
+            ])
+
+        response = HttpResponse(
+            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        )
+        response['Content-Disposition'] = 'attachment; filename=session_report.xlsx'
+        wb.save(response)
+        return response
+
+    return HttpResponse("Method not allowed", status=405)

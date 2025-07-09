@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'students',
     'captcha',
+    'student_panel',
 ]
 RECAPTCHA_PUBLIC_KEY = '6LcNu2wrAAAAALkFcSfQmqcNH0ypeoio3o1eV0Fs'
 RECAPTCHA_PRIVATE_KEY = '6LcNu2wrAAAAACQdbuM1dYiOkyAE143FMWXW_KFL'
@@ -173,3 +174,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'abinesh70103@gmail.com'  # 👉 your email
 EMAIL_HOST_PASSWORD = 'wvtx mzgz libs yrmo'  # 👉 app password (not your regular password)
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+LOGIN_URL = '/login/'

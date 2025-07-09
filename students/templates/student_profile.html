@@ -207,6 +207,7 @@
 </div>
 
 
+
  
 <div class="row">
   <div class="col-12">
@@ -227,10 +228,16 @@
   </div>
 </div>
 
+
   <form method="POST" action="{% url 'bulk_delete_students'  %}">
   {% csrf_token %}
  <div class="px-4 mb-3 d-flex justify-content-between align-items-center">
   <h5 class="mb-0 fw-bold">Student List</h5>
+<a href="{% url 'export_student_report' %}" class="btn btn">
+  📥 Download Student Report (Excel)
+</a>
+
+
   <button type="submit"
           class="btn btn-outline-danger btn-sm rounded-pill px-4 py-2 shadow-sm fw-semibold"
           style="font-size: 14px;"
