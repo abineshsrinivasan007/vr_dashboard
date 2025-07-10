@@ -12,8 +12,8 @@
   --bs-purple: #a855f7;
   --bs-pink: #ec4899;
   --bs-red: #ef4444;
-  --bs-orange: #2e5727;
-  --bs-yellow: #08ea39;
+  --bs-orange: #f97316;
+  --bs-yellow: #eab308;
   --bs-green: #22c55e;
   --bs-teal: #14b8a6;
   --bs-cyan: #06b6d4;
@@ -29,11 +29,11 @@
   --bs-gray-700: #3f3f46;
   --bs-gray-800: #27272a;
   --bs-gray-900: #18181b;
-  --bs-primary: #16f984;
+  --bs-primary: #f97316;
   --bs-secondary: #71717a;
   --bs-success: #22c55e;
   --bs-info: #0ea5e9;
-  --bs-warning: #08ea31;
+  --bs-warning: #eab308;
   --bs-danger: #ef4444;
   --bs-light: #e3e3e7;
   --bs-dark: #27272a;
@@ -95,10 +95,10 @@
   --bs-tertiary-bg: #f4f4f5;
   --bs-tertiary-bg-rgb: 244, 244, 245;
   --bs-heading-color: #27272a;
-  --bs-link-color: #16f91d;
+  --bs-link-color: #f97316;
   --bs-link-color-rgb: 249, 115, 22;
   --bs-link-decoration: none;
-  --bs-link-hover-color: rgb(14, 190, 5);
+  --bs-link-hover-color: rgb(189.6171548117, 80.5669456067, 4.8828451883);
   --bs-link-hover-color-rgb: 190, 81, 5;
   --bs-link-hover-decoration: none;
   --bs-code-color: #ec4899;

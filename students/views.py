@@ -252,8 +252,8 @@ def student_profile(request):
 # views.py
 
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Student, Degree, Department, Section
-from .form import StudentForm
+from students.models import Student, Degree, Department, Section
+from students.form import StudentForm
 
 def edit_student(request, student_id):
     student = get_object_or_404(Student, id=student_id)
@@ -270,7 +270,7 @@ def edit_student(request, student_id):
     degrees = Degree.objects.all()
     departments = Department.objects.all()
     sections = Section.objects.all()
-
+    
     return render(request, 'edit_student.html', {
         'form': form,
         'student': student,
