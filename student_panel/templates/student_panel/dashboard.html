@@ -243,13 +243,11 @@
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="">Online Builder</a>
-            </li>
+            
             <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
+                <span class="d-sm-inline d-none">Sign out</span>
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -354,11 +352,11 @@
         <div class="row">
           <div class="col-8 text-start">
             <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-              <i class="fas fa-user text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
+              <i class="fas fa-graduation-cap text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
             </div>
-           <!-- Card 1 - Active Users -->
-<h5 class="text-white font-weight-bolder mb-0 mt-3">{{ stats.active_users }}</h5>
-<span class="text-white text-sm">Users Active</span>
+           <h5 class="text-white font-weight-bolder mb-0 mt-3">{{ completed_modules }}/{{ total_modules }}</h5>
+<span class="text-white text-sm">Modules Completed</span>
+
           </div>
           <div class="col-4">
             <div class="dropdown text-end mb-6">
@@ -369,7 +367,7 @@
                 <li><a class="dropdown-item" href="#">Action</a></li>
               </ul>
             </div>
-            <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+55%</p>
+            <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+{{ completion_percent }}%</p>
           </div>
         </div>
       </div>
@@ -384,11 +382,10 @@
         <div class="row">
           <div class="col-8 text-start">
             <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-              <i class="fas fa-calendar-alt text-dark text-lg opacity-10"></i>
+              <i class="fas fa-hourglass-half text-dark text-lg opacity-10"></i>
             </div>
-            <!-- Card 2 - Click Events -->
-<h5 class="text-white font-weight-bolder mb-0 mt-3">{{ stats.click_events }}</h5>
-<span class="text-white text-sm">Click Events</span>
+            <h5 class="text-white font-weight-bolder mb-0 mt-3">{{ total_hours }}h {{ total_minutes }}m</h5>
+<span class="text-white text-sm">Time Spent</span>
 
           </div>
           <div class="col-4 text-end">
@@ -415,11 +412,10 @@
         <div class="row">
           <div class="col-8 text-start">
             <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-              <i class="fas fa-shopping-cart text-dark text-lg opacity-10"></i>
+              <i class="fas fa-book text-dark text-lg opacity-10"></i>
             </div>
-            <!-- Card 3 - Purchases -->
-<h5 class="text-white font-weight-bolder mb-0 mt-3">{{ stats.purchases }}</h5>
-<span class="text-white text-sm">Purchases</span>
+            <h5 class="text-white font-weight-bolder mb-0 mt-3">{{ most_used_module }}</h5>
+<span class="text-white text-sm">Most Used Module</span>
 
           </div>
           <div class="col-4 text-end">
@@ -431,7 +427,7 @@
                 <li><a class="dropdown-item" href="#">Action</a></li>
               </ul>
             </div>
-            <p class="text-white text-sm font-weight-bolder mt-auto mb-0">+15%</</p>
+            <p class="text-white text-sm font-weight-bolder mt-auto mb-0">+15%</p>
           </div>
         </div>
       </div>
@@ -446,11 +442,11 @@
         <div class="row">
           <div class="col-8 text-start">
             <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-              <i class="fas fa-thumbs-up text-dark text-lg opacity-10"></i>
+              <i class="fas fa-chart-line text-dark text-lg opacity-10"></i>
             </div>
-           <!-- Card 4 - Likes -->
-<h5 class="text-white font-weight-bolder mb-0 mt-3">{{ stats.likes }}</h5>
-<span class="text-white text-sm">Likes</span>
+            <h5 class="text-white font-weight-bolder mb-0 mt-3">{{ remaining_modules }}</h5>
+<span class="text-white text-sm">Modules Remaining</span>
+
           </div>
           <div class="col-4 text-end">
             <div class="dropdown mb-6">
@@ -461,7 +457,8 @@
                 <li><a class="dropdown-item" href="#">Action</a></li>
               </ul>
             </div>
-            <p class="text-white text-sm font-weight-bolder mt-auto mb-0">+90%</p>
+            <p class="text-white text-sm font-weight-bolder mt-auto mb-0">-{{ remaining_percent }}%</p>
+
           </div>
         </div>
       </div>
@@ -505,21 +502,23 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-5">
-          <div class="card h-100 p-3">
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('{% static 'asset/img copy/ivancik.jpg' %}');">
-              <span class="mask bg-gradient-dark"></span>
-              <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                <h5 class="text-white font-weight-bolder mb-4 pt-2">Work with the rockets</h5>
-                <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
-                <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                  Read More
-                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+       <div class="col-lg-5">
+  <div class="card h-100 p-3">
+    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+         style="background-image: url('{% static 'asset/img copy/ivancik.jpg' %}');">
+      <span class="mask bg-gradient-dark"></span>
+      <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+        <h5 class="text-white font-weight-bolder mb-4 pt-2">Explore Your Learning Path</h5>
+        <p class="text-white">Stay on top of your modules, track your time, and complete your goals to grow every day.</p>
+        <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="">
+          Start Learning
+          <i class="fas fa-book-open text-sm ms-1" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
        <div class="row mt-4">
         <div class="col-lg-5 mb-lg-0 mb-4">

@@ -1,7 +1,11 @@
 from django.contrib import admin
 from .models import Student, Module, Session, AdminUser, Degree, Department, Section
 
-
+@admin.register(AdminUser)
+class AdminUserAdmin(admin.ModelAdmin):
+    list_display = ('name', 'staff_id','email','password')
+    search_fields=('name','staff_id')
+    
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'vp_code','email')
