@@ -212,21 +212,21 @@
       <div class="card mb-4"> 
         <div class="card-header pb-0">
           <div class="row align-items-center">
-            
           </div>
         </div>
 
       <form method="get" class="row g-2 px-4 mb-3">
-  <div class="row px-4 mb-3">
-    <div class="col-md-4">
-      <label for="degree">Degree</label>
-      <select name="degree" id="degree" class="form-control">
-        <option value="">-- All Degrees --</option>
-        {% for degree in degrees %}
-          <option value="{{ degree }}" {% if selected_degree == degree %}selected{% endif %}>{{ degree }}</option>
-        {% endfor %}
-      </select>
-    </div>
+        <div class="row px-4 mb-3">
+          <div class="col-md-4">
+            <label for="degree">Degree</label>
+            <select name="degree" id="degree" class="form-control">
+              <option value="">-- All Degrees --</option>
+              {% for degree in degrees %}
+                <option value="{{ degree }}" {% if selected_degree == degree %}selected{% endif %}>{{ degree }}</option>
+              {% endfor %}
+            </select>
+          </div>
+      
 
     <div class="col-md-4">
       <label for="department">Department</label>

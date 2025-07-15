@@ -240,13 +240,17 @@ def admin_dashboard_view(request):
     })
 
 
-from django.shortcuts import render
-from .models import Student  # Adjust based on your model name
-
 def student_profile(request):
     students = Student.objects.all()
-    return render(request, 'student_profile.html', {'students': students})
 
+    # Attach completed modules count dynamically
+    for student in students:
+        student.completed_modules_count = student.session_set.filter(
+            progress=100,
+            check_out__isnull=False
+        ).values('module_id').distinct().count()
+
+    return render(request, 'student_profile.html', {'students': students})
 
 
 # views.py

@@ -23,13 +23,17 @@ def student_login(request):
     return render(request, 'student_panel/student_login.html')
 
 
-from students.models import Session, Module
-from django.utils.timezone import now
-from datetime import datetime
 
 def student_dashboard(request):
     if 'student_id' not in request.session:
         return redirect('student_login')
+
+    from students.models import Session, Module, Student
+    from datetime import datetime
+    from django.utils.timezone import now
+    from django.db.models import Count
+    from dateutil.relativedelta import relativedelta
+    import json
 
     student = Student.objects.get(id=request.session['student_id'])
 
@@ -42,18 +46,20 @@ def student_dashboard(request):
     else:
         greeting = "Good evening"
 
+    # Module stats
     total_modules = Module.objects.count()
     completed_modules = Session.objects.filter(student=student, progress=100).values('module').distinct().count()
     remaining_modules = total_modules - completed_modules
 
-    # Time spent calculation
+    # Time spent
     sessions = Session.objects.filter(student=student)
     total_seconds = sum([(s.check_out - s.check_in).total_seconds() for s in sessions if s.check_out], 0)
     hours = int(total_seconds // 3600)
     minutes = int((total_seconds % 3600) // 60)
+    total_minutes = minutes % 60
+    total_hours = hours // 60
 
     # Most used module
-    from django.db.models import Count
     most_used = (
         Session.objects.filter(student=student)
         .values('module__name')
@@ -61,24 +67,109 @@ def student_dashboard(request):
         .order_by('-count')
         .first()
     )
-    total_minutes = minutes % 60
-    total_hours = hours // 60
-
     most_used_module = most_used['module__name'] if most_used else "N/A"
     completion_percent = int((completed_modules / total_modules) * 100) if total_modules else 0
     remaining_percent = 100 - completion_percent
+
+    # === Monthly Completion Graph Data ===
+    labels = []
+    monthly_progress = []
+    monthly_usage_percentage = []
+    today = now()
+    
+
+    for i in range(7, -1, -1):  # Last 8 months
+        month_date = today - relativedelta(months=i)
+        year = month_date.year
+        month = month_date.month
+
+        completed = Session.objects.filter(
+            student=student,
+            progress=100,
+            check_out__year=year,
+            check_out__month=month,
+        ).values('module').distinct().count()
+
+        accessed = Session.objects.filter(
+            student=student,
+            check_out__year=year,
+            check_out__month=month,
+        ).values('module').distinct().count()
+
+        labels.append(month_date.strftime('%b %Y'))
+        monthly_progress.append(completed)
+
+        percentage = int((completed / accessed) * 100) if accessed else 0
+        monthly_usage_percentage.append(percentage)
+
+    # === Calculate Dynamic Percentage Change (Based on Completions) ===
+    if len(monthly_progress) >= 2:
+        current = monthly_progress[-1]
+        previous = monthly_progress[-2]
+
+        if previous > 0:
+            change_percent = round(((current - previous) / previous) * 100)
+        else:
+            change_percent = 100 if current > 0 else 0
+    else:
+        change_percent = 0
+
+    trend_direction = "up" if change_percent >= 0 else "down"
+    trend_class = "text-success" if change_percent >= 0 else "text-danger"
+    trend_icon = "fa-arrow-up" if change_percent >= 0 else "fa-arrow-down"
+    # === Dynamic Module Data: Sessions, Time Spent, Progress ===
+    module_summary = []
+
+    student_modules = (
+        Session.objects.filter(student=student)
+        .values('module')
+        .distinct()
+            )
+
+    for entry in student_modules:
+        module_id = entry['module']
+        module = Module.objects.get(id=module_id)
+        module_sessions = sessions.filter(module=module)
+
+        total_time = sum(
+        [(s.check_out - s.check_in).total_seconds() for s in module_sessions if s.check_out],
+        0
+    )
+        time_spent_minutes = int(total_time // 60)
+
+        progress_list = module_sessions.values_list('progress', flat=True)
+        avg_progress = int(sum(progress_list) / len(progress_list)) if progress_list else 0
+
+        module_summary.append({
+        'name': module.name,
+        'session_count': module_sessions.count(),
+        'time_spent_minutes': time_spent_minutes,
+        'average_progress': avg_progress,
+    })
+        print(module_summary,"module summart")
+
     return render(request, 'student_panel/dashboard.html', {
         'student': student,
         'greeting': greeting,
         'total_modules': total_modules,
         'completed_modules': completed_modules,
         'remaining_modules': remaining_modules,
-        'total_hours': hours,            # <-- Add this
-        'total_minutes': minutes, 
+        'total_hours': hours,
+        'total_minutes': minutes,
         'hours': total_hours,
-        'minutes':total_minutes,
+        'minutes': total_minutes,
         'most_used_module': most_used_module,
-        'completion_percent': int((completed_modules / total_modules) * 100) if total_modules else 0,
         'completion_percent': completion_percent,
         'remaining_percent': remaining_percent,
+
+        # For chart.js
+        'labels': json.dumps(labels),
+        'monthly_progress': json.dumps(monthly_progress),
+        'monthly_usage_percentage': json.dumps(monthly_usage_percentage),
+        'trend_percent': abs(change_percent),
+        'trend_class': trend_class,
+        'trend_icon': trend_icon,
+        'trend_label': labels[-1].split(" ")[-1],
+        'module_summary': module_summary,
+
     })

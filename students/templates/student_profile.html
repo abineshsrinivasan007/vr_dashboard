@@ -250,47 +250,51 @@
 
   <div class="table-responsive p-0">
     <table class="table align-items-center mb-0">
-      <thead class="bg-light">
-        <tr>
-          <th class="ps-4"><input type="checkbox" id="select-all" /></th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">VP Code</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Email</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Created At</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        {% for student in students %}
-        <tr>
-          <td class="ps-4">
-            <input type="checkbox" name="selected_ids" value="{{ student.id }}">
-          </td>
-          <td><p class="text-xs font-weight-bold mb-0">{{ student.id }}</p></td>
-          <td>
-            <div class="d-flex px-2 py-1 align-items-center">
-              <div class="d-flex flex-column justify-content-center">
-                <h6 class="mb-0 text-sm">
-                  <a href="{% url 'edit_student' student.id %}">{{ student.name }}</a>
-                </h6>
-                <p class="text-xs text-secondary mb-0">{{ student.email }}</p>
-              </div>
-            </div>
-          </td>
-          <td class="text-center"><p class="text-sm font-weight-bold mb-0">{{ student.vp_code }}</p></td>
-          <td class="text-center"><p class="text-sm text-secondary mb-0">{{ student.email }}</p></td>
-          <td class="text-center">
-            <span class="text-xs text-secondary font-weight-bold">{{ student.created_at|date:"d M Y" }}</span>
-          </td>
-          
-        {% empty %}
-        <tr>
-          <td colspan="7" class="text-center py-4"><p class="text-muted mb-0">No students found.</p></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <thead class="bg-light">
+    <tr>
+      <th class="ps-4"><input type="checkbox" id="select-all" /></th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">VP Code</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Email</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Created At</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Completed Modules</th> <!-- New column -->
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students %}
+    <tr>
+      <td class="ps-4">
+        <input type="checkbox" name="selected_ids" value="{{ student.id }}">
+      </td>
+      <td><p class="text-xs font-weight-bold mb-0">{{ student.id }}</p></td>
+      <td>
+        <div class="d-flex px-2 py-1 align-items-center">
+          <div class="d-flex flex-column justify-content-center">
+            <h6 class="mb-0 text-sm">
+              <a href="{% url 'edit_student' student.id %}">{{ student.name }}</a>
+            </h6>
+            <p class="text-xs text-secondary mb-0">{{ student.email }}</p>
+          </div>
+        </div>
+      </td>
+      <td class="text-center"><p class="text-sm font-weight-bold mb-0">{{ student.vp_code }}</p></td>
+      <td class="text-center"><p class="text-sm text-secondary mb-0">{{ student.email }}</p></td>
+      <td class="text-center">
+        <span class="text-xs text-secondary font-weight-bold">{{ student.created_at|date:"d M Y" }}</span>
+      </td>
+      <td class="text-center">
+        <p class="text-sm font-weight-bold mb-0">{{ student.completed_modules_count }}</p> <!-- Display completed modules -->
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="8" class="text-center py-4"><p class="text-muted mb-0">No students found.</p></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
   </div>
 </form>
 

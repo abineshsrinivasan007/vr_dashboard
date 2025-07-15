@@ -95,7 +95,7 @@ Chart.elements.Rectangle.prototype.draw = function() {
     }
 
     nextCorner = cornerAt(nextCornerId);
-
+    
     width = corners[2][0] - corners[1][0];
     height = corners[0][1] - corners[1][1];
     x = corners[1][0];
