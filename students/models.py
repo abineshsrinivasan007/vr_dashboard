@@ -70,3 +70,4 @@ class AdminUser(models.Model):
 
     def __str__(self):
         return f"{self.staff_id} - {self.name}"
+

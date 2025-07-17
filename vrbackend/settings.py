@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'students',
     'captcha',
     'student_panel',
-]
+   ]
+
 RECAPTCHA_PUBLIC_KEY = '6LcNu2wrAAAAALkFcSfQmqcNH0ypeoio3o1eV0Fs'
 RECAPTCHA_PRIVATE_KEY = '6LcNu2wrAAAAACQdbuM1dYiOkyAE143FMWXW_KFL'
 JAZZMIN_SETTINGS = {

@@ -29,11 +29,14 @@ def student_dashboard(request):
         return redirect('student_login')
 
     from students.models import Session, Module, Student
+    from django.utils import timezone
     from datetime import datetime
     from django.utils.timezone import now
     from django.db.models import Count
     from dateutil.relativedelta import relativedelta
     import json
+    from django.db.models import Avg, Count
+
 
     student = Student.objects.get(id=request.session['student_id'])
 
@@ -146,7 +149,15 @@ def student_dashboard(request):
         'time_spent_minutes': time_spent_minutes,
         'average_progress': avg_progress,
     })
-        print(module_summary,"module summart")
+        
+        recent_sessions = Session.objects.filter(student=student).order_by('-check_in')[:10]
+       
+        top_modules = (
+        Session.objects.filter(student=student)
+        .values('module__name')
+        .annotate(avg_progress=Avg('progress'), session_count=Count('id'))
+        .order_by('-session_count')[:3]
+    )
 
     return render(request, 'student_panel/dashboard.html', {
         'student': student,
@@ -171,5 +182,8 @@ def student_dashboard(request):
         'trend_icon': trend_icon,
         'trend_label': labels[-1].split(" ")[-1],
         'module_summary': module_summary,
+        'recent_sessions': recent_sessions,
+        'top_modules': top_modules
 
     })
+
