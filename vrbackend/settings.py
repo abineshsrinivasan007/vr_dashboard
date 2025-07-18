@@ -43,8 +43,20 @@ INSTALLED_APPS = [
     'corsheaders',
     'students',
     'captcha',
+     'channels',
     'student_panel',
    ]
+#WEBSOCKET_FOR ADMIN TO STUDENTS_NOTIFICATION
+ASGI_APPLICATION = 'vrbackend.asgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
+
 
 RECAPTCHA_PUBLIC_KEY = '6LcNu2wrAAAAALkFcSfQmqcNH0ypeoio3o1eV0Fs'
 RECAPTCHA_PRIVATE_KEY = '6LcNu2wrAAAAACQdbuM1dYiOkyAE143FMWXW_KFL'
@@ -80,7 +92,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-
+# Add this line:
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

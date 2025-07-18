@@ -71,3 +71,15 @@ class AdminUser(models.Model):
     def __str__(self):
         return f"{self.staff_id} - {self.name}"
 
+
+
+
+
+from django.db import models
+
+class AdminMessage(models.Model):
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.message[:50]

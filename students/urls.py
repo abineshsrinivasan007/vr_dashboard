@@ -1,7 +1,7 @@
 from django.urls import path
 from students.views import LoginView  
 from .views import StartSessionView, UpdateProgressView, EndSessionView
-from .views import GetModuleList, admin_login_view, admin_dashboard_view, student_profile, add_student, edit_student, bulk_delete_students, module_list_view, add_module, edit_module, bulk_delete_modules, sessions_list, load_departments, load_sections, admin_logout
+from .views import GetModuleList, admin_login_view, admin_dashboard_view, student_profile, add_student, edit_student, bulk_delete_students, module_list_view, add_module, edit_module, bulk_delete_modules, sessions_list, load_departments, load_sections, admin_logout,send_admin_message,notification_admin
 from . import views
 
 urlpatterns = [
@@ -33,4 +33,6 @@ urlpatterns = [
     path('signout/',admin_logout, name='admin_logout'),
     path('export/students/', views.export_student_report, name='export_student_report'),
     path('export/sessions/', views.export_session_report, name='export_session_report'),
+    path('notification-admin/', notification_admin, name='notification_admin'),
+    path('send-admin-message/', send_admin_message, name='send_admin_message')
 ]

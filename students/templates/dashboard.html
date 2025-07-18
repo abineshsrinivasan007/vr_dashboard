@@ -30,7 +30,6 @@
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="{% url 'admin_dashboard' %}"  >
 
-     
         <span class="ms-1 font-weight-bold">Admin Dashboard</span>
       </a>
     </div>
@@ -72,7 +71,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{% url 'notification_admin' %}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-dark text-sm opacity-10"></i>
             </div>
@@ -542,6 +541,52 @@
 </script>
 <!-- Bootstrap Bundle with Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('form-notification-admin').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const messageInput = this.querySelector('input[name="message"]');
+    const message = messageInput.value.trim();
+
+    if (message !== '') {
+        fetch('/send-admin-message/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),  // make sure to define getCookie function or use Django's CSRF token
+            },
+            body: JSON.stringify({message: message}),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Message sent!');
+                messageInput.value = '';
+            } else {
+                alert('Failed to send message');
+            }
+        });
+    }
+});
+
+// Helper function to get CSRF token cookie
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+
 
 </body>
 </html>

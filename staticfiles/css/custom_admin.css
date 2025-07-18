@@ -1,0 +1,38 @@
+/* Align progress column to center */
+th.column-progress, td.field-progress {
+    text-align: center !important;
+    width: 100px;
+}
+
+/* Adjust widths for other columns */
+th.column-id, td.field-id {
+    width: 50px;
+}
+
+th.column-name, td.field-name {
+    width: 200px;
+}
+
+/* Optional: fix table font-size */
+table.adminlist {
+    font-size: 14px;
+}
+/* Make navbar clean and elegant */
+.navbar {
+    background-color: #bcc1c7 !important;
+    color: rgb(41, 34, 34);
+}
+
+/* Update sidebar look */
+.main-sidebar {
+    background-color: #243447 !important;
+}
+
+.brand-link .brand-text {
+    color: #f8f9fa !important;
+    font-weight: bold;
+}
+
+.content-wrapper {
+    background-color: #f5f7fa;
+}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student, Module, Session, AdminUser, Degree, Department, Section
+from .models import Student, Module, Session, AdminUser, Degree, Department, Section, AdminMessage
 
 @admin.register(AdminUser)
 class AdminUserAdmin(admin.ModelAdmin):
@@ -48,3 +48,7 @@ class SessionAdmin(admin.ModelAdmin):
     list_per_page = 20
 
 
+@admin.register(AdminMessage)
+class AdminMessageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'message', 'timestamp')
+    

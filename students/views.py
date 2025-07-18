@@ -593,3 +593,39 @@ def export_session_report(request):
         return response
 
     return HttpResponse("Method not allowed", status=405)
+
+
+
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
+from .models import AdminMessage
+
+@csrf_exempt
+def send_admin_message(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        message_text = data.get('message')
+        if message_text:
+            # Save message
+            msg = AdminMessage.objects.create(message=message_text)
+
+            # Send message to channel layer group 'students_group'
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)(
+                'students_group',
+                {
+                    'type': 'chat_message',  # handler function in consumer
+                    'message': message_text,
+                    'timestamp': str(msg.timestamp),
+                }
+            )
+            return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'fail'}, status=400)
+
+
+
+def notification_admin(request):
+    return render(request, 'notification_admin.html')

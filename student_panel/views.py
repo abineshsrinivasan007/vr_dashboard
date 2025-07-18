@@ -28,7 +28,7 @@ def student_dashboard(request):
     if 'student_id' not in request.session:
         return redirect('student_login')
 
-    from students.models import Session, Module, Student
+    from students.models import Session, Module, Student, AdminMessage
     from django.utils import timezone
     from datetime import datetime
     from django.utils.timezone import now
@@ -158,7 +158,8 @@ def student_dashboard(request):
         .annotate(avg_progress=Avg('progress'), session_count=Count('id'))
         .order_by('-session_count')[:3]
     )
-
+    messages = AdminMessage.objects.order_by('-timestamp')[:5]
+    print("Messages:", messages)
     return render(request, 'student_panel/dashboard.html', {
         'student': student,
         'greeting': greeting,
@@ -183,7 +184,19 @@ def student_dashboard(request):
         'trend_label': labels[-1].split(" ")[-1],
         'module_summary': module_summary,
         'recent_sessions': recent_sessions,
-        'top_modules': top_modules
+        'top_modules': top_modules,
+        'messages': messages
 
     })
 
+
+from django.shortcuts import redirect
+from django.contrib import messages
+
+def student_logout(request):
+    if 'student_user_id' not in request.session:
+        messages.error(request, "You are not logged in.")
+        return redirect('student_login')
+    request.session.flush()  # ✅ Clears session data
+    messages.success(request, "You have successfully logged out.")
+    return redirect('student_login')  # Replace with your actual login URL name
