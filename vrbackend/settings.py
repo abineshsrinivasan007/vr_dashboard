@@ -103,8 +103,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 CORS_ALLOW_ALL_ORIGINS = True  # Allow Unity calls
 
 ROOT_URLCONF = 'vrbackend.urls'
