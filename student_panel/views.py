@@ -159,6 +159,8 @@ def student_dashboard(request):
         .order_by('-session_count')[:3]
     )
     messages = AdminMessage.objects.order_by('-timestamp')[:5]
+    unread_count = AdminMessage.objects.filter(is_read=False).count()
+    
     print("Messages:", messages)
     return render(request, 'student_panel/dashboard.html', {
         'student': student,
@@ -185,7 +187,8 @@ def student_dashboard(request):
         'module_summary': module_summary,
         'recent_sessions': recent_sessions,
         'top_modules': top_modules,
-        'messages': messages
+        'messages': messages,
+        'unread_count': unread_count,
 
     })
 
