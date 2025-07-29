@@ -25,7 +25,7 @@ table.adminlist {
 
 /* Update sidebar look */
 .main-sidebar {
-    background-color: #243447 !important;
+    background-color: #0e3f7c !important;
 }
 
 .brand-link .brand-text {
@@ -36,3 +36,11 @@ table.adminlist {
 .content-wrapper {
     background-color: #f5f7fa;
 }
+ @media (max-width: 1200px) {
+      #sidenav-main {
+        display: none;
+      }
+      #sidenav-main.show-sidebar {
+        display: block !important;
+      }
+    }

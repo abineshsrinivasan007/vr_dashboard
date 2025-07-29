@@ -184,6 +184,7 @@
   --bs-form-invalid-border-color: rgb(245.4, 107.16, 107.16);
 }
 
+
 *,
 *::before,
 *::after {
@@ -266,6 +267,20 @@ h3,
 .h3 {
   font-size: calc(1.3125rem + 0.75vw);
 }
+/* Hide sidebar by default on small screens */
+@media (max-width: 1199px) {
+  #sidenav-main {
+    transform: translateX(-300px);
+    transition: transform 0.3s ease;
+    position: fixed;
+    z-index: 1050;
+  }
+
+  #sidenav-main.show-sidebar {
+    transform: translateX(0);
+  }
+}
+
 
 @media (min-width: 1200px) {
 

@@ -104,7 +104,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
      'whitenoise.middleware.WhiteNoiseMiddleware',
-
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -128,7 +127,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'vrbackend.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases

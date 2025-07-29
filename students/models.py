@@ -74,7 +74,6 @@ class AdminUser(models.Model):
 
 
 
-
 from django.db import models
 
 class AdminMessage(models.Model):

@@ -51,4 +51,4 @@ class SessionAdmin(admin.ModelAdmin):
 @admin.register(AdminMessage)
 class AdminMessageAdmin(admin.ModelAdmin):
     list_display = ('id', 'message', 'timestamp')
-    
+
