@@ -260,78 +260,91 @@
 
   <!-- Table -->
  <div class="table-responsive p-0">
-  <table class="table align-items-center mb-0">
-    <thead class="bg-light">
-      <tr>
-        <th class="ps-4"><input type="checkbox" id="select-all" /></th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name & VPCode</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Module</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Degree & Dep</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Section</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Progress</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for session in sessions %}
-      <tr>
-        <td class="ps-4">
-          <input type="checkbox" name="selected_ids" value="{{ session.id }}">
-        </td>
-        <td><p class="text-xs font-weight-bold mb-0">{{ session.id }}</p></td>
-        <td>
-          <div class="d-flex px-2 py-1 align-items-center">
-            <div class="d-flex flex-column justify-content-center">
-              <h6 class="mb-0 text-sm">
-                <a href="{% url 'edit_student' session.student.id %}">{{ session.student.name }}</a>
-              </h6>
-              <p class="text-xs text-secondary mb-0">{{ session.student.vp_code }}</p>
-            </div>
+<table class="table align-items-center mb-0">
+  <thead class="bg-light">
+    <tr>
+      <th class="ps-4"><input type="checkbox" id="select-all" /></th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name & VPCode</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Module</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Degree & Dep</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Section</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Progress</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Check In</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Check Out</th>
+      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for session in sessions %}
+    <tr>
+      <td class="ps-4"><input type="checkbox" name="selected_ids" value="{{ session.id }}"></td>
+      <td><p class="text-xs font-weight-bold mb-0">{{ session.id }}</p></td>
+      <td>
+        <div class="d-flex px-2 py-1 align-items-center">
+          <div class="d-flex flex-column justify-content-center">
+            <h6 class="mb-0 text-sm">
+              <a href="{% url 'edit_student' session.student.id %}">{{ session.student.name }}</a>
+            </h6>
+            <p class="text-xs text-secondary mb-0">{{ session.student.vp_code }}</p>
           </div>
-        </td>
-        <td class="text-center"><p class="text-sm font-weight-bold mb-0">{{ session.module.name }}</p></td>
-<td>
-  <div class="d-flex px-2 py-1 align-items-center">
-    <div class="d-flex flex-column justify-content-center">
-      <h6 class="mb-0 text-sm">
-        {% if session.student.degree %}
-          <a href="">{{ session.student.degree.name }}</a>
+        </div>
+      </td>
+      <td class="text-center"><p class="text-sm font-weight-bold mb-0">{{ session.module.name }}</p></td>
+      <td>
+        <div class="d-flex px-2 py-1 align-items-center">
+          <div class="d-flex flex-column justify-content-center">
+            <h6 class="mb-0 text-sm">
+              {% if session.student.degree %}
+                <a href="">{{ session.student.degree.name }}</a>
+              {% else %}
+                No Degree
+              {% endif %}
+            </h6>
+            <p class="text-xs text-secondary mb-0">
+              {% if session.student.department %}
+                {{ session.student.department.name }}
+              {% else %}
+                No Department
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </td>
+      <td class="text-center">
+        <p class="text-sm text-secondary mb-0">
+          {% if session.student.section %}
+            {{ session.student.section.section }}
+          {% else %}
+            No Section
+          {% endif %}
+        </p>
+      </td>
+      <td class="text-center"><p class="text-sm text-secondary mb-0">{{ session.progress }}%</p></td>
+      
+      <!-- ✅ New Columns -->
+      <td class="text-center"><p class="text-sm text-secondary mb-0">{{ session.check_in|date:"Y-m-d H:i" }}</p></td>
+      <td class="text-center">
+        {% if session.check_out %}
+          <p class="text-sm text-secondary mb-0">{{ session.check_out|date:"Y-m-d H:i" }}</p>
         {% else %}
-          No Degree
+          <span class="badge bg-warning">Active</span>
         {% endif %}
-      </h6>
-      <p class="text-xs text-secondary mb-0">
-        {% if session.student.department %}
-          {{ session.student.department.name }}
-        {% else %}
-          No Department
-        {% endif %}
-      </p>
-    </div>
-  </div>
-</td>
+      </td>
+      <td class="text-center">
+        <p class="text-sm text-secondary mb-0">{{ session.duration }}</p>
 
-<td class="text-center">
-  <p class="text-sm text-secondary mb-0">
-    {% if session.student.section %}
-      {{ session.student.section.section }}
-    {% else %}
-      No Section
-    {% endif %}
-  </p>
-</td>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="10" class="text-center py-4"><p class="text-muted mb-0">No sessions found.</p></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-        <td class="text-center">
-          <p class="text-sm text-secondary mb-0">{{ session.progress }}%</p>
-        </td>          
-      </tr>
-      {% empty %}
-      <tr>
-        <td colspan="7" class="text-center py-4"><p class="text-muted mb-0">No sessions found.</p></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+
 </div>
 
 </form>

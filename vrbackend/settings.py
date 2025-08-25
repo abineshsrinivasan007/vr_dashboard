@@ -187,6 +187,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'abinesh70103@gmail.com'  # 👉 your email
-EMAIL_HOST_PASSWORD = 'wvtx mzgz libs yrmo'  # 👉 app password (not your regular password)
+EMAIL_HOST_PASSWORD = 'wvtxmzgzlibsyrymo'  # 👉 app password (not your regular password)
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 LOGIN_URL = '/login/'

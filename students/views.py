@@ -2,16 +2,19 @@ from django import test
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from students.models import Student
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from students.models import Student
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
-
-
-
-
+@method_decorator(csrf_exempt, name='dispatch')
 class LoginView(APIView):
     def post(self, request):
         vp_code = request.data.get('vp_code')
-        
         if not vp_code:
             return Response({"error": "VP code is required"}, status=400)
         try:
@@ -19,16 +22,20 @@ class LoginView(APIView):
             return Response({
                 "id": student.id,
                 "name": student.name,
-                "email": student.email,  # added email
+                "email": student.email,
                 "message": "Login successful"
             })
         except Student.DoesNotExist:
             return Response({"error": "Invalid VP code"}, status=400)
-        
 
-        
-from students.models import Module, Session
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Session
 from django.utils import timezone
+
+@method_decorator(csrf_exempt, name='dispatch')
 class StartSessionView(APIView):
     def post(self, request):
         student_id = request.data.get('student_id')
@@ -38,9 +45,10 @@ class StartSessionView(APIView):
             module_id=module_id,
             check_in=timezone.now()
         )
-        return Response({"session_id": session.id,
-                         "message": "Session started" })
-    
+        return Response({
+            "session_id": session.id,
+            "message": "Session started"
+        })
 
 
 from rest_framework.views import APIView

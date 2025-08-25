@@ -42,6 +42,8 @@ class Module(models.Model):
     def __str__(self):
         return self.name
 
+from datetime import timedelta
+
 class Session(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
@@ -51,6 +53,22 @@ class Session(models.Model):
 
     def __str__(self):
         return f"{self.student.name} - {self.module.name}"
+
+    @property
+    def duration(self):
+        """Return session duration as HH:MM:SS"""
+        if self.check_out:
+            diff = self.check_out - self.check_in
+        else:
+            from django.utils.timezone import now
+            diff = now() - self.check_in  # if still active
+
+        # Format as H:M:S
+        seconds = int(diff.total_seconds())
+        hours, remainder = divmod(seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        return f"{hours:02}:{minutes:02}:{seconds:02}"
+
 
 # students/models.py
 from django.db import models
