@@ -43,10 +43,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'students',
     'captcha',
-     'channels',
+    'channels',
     'student_panel',
-   ]
-#WEBSOCKET_FOR ADMIN TO STUDENTS_NOTIFICATION
+]
+#WEBSOCKET_FOR_ADMIN_TO_STUDENTS_NOTIFICATION
 ASGI_APPLICATION = 'vrbackend.asgi.application'
 CHANNEL_LAYERS = {
     "default": {
@@ -133,8 +133,16 @@ WSGI_APPLICATION = 'vrbackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'unity-dashboard',
+        'USER': 'unity_user',
+        'PASSWORD': 'StrongPassword123!',
+        'HOST': '127.0.0.1',   # or 'localhost'
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -186,7 +194,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'abinesh70103@gmail.com'  # 👉 your email
-EMAIL_HOST_PASSWORD = 'wvtxmzgzlibsyrymo'  # 👉 app password (not your regular password)
+EMAIL_HOST_USER = 'abinesh70103@gmail.com'  # your email
+EMAIL_HOST_PASSWORD = 'wvtxmzgzlibsyrymo'  # app password (not your regular password)
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 LOGIN_URL = '/login/'

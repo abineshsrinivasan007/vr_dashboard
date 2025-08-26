@@ -1,0 +1,2916 @@
+﻿[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$kQepnQq1KxzJIdyHffwme0$5bKBUfckAwPgRGk8KCo1sTU77zAowLSs4PUQfQsTBS8=",
+    "last_login": "2025-06-09T04:42:10.024Z",
+    "is_superuser": true,
+    "username": "abinesh",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-06-09T04:41:31.238Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$BVTE4GocUDHPTaTe00GRcU$ylr92C7pXVstyZ3p2DY3aVDvQrSR5ArbSDibRBTa60M=",
+    "last_login": "2025-06-12T09:29:02.434Z",
+    "is_superuser": true,
+    "username": "tansam",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-06-12T07:12:27.986Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$kSqJDoukzcYyBRJ8EVPTz6$wXVFqW9IrFjC4+pP7E+Cf1mhxiRMWl758X22q6uZ4FA=",
+    "last_login": "2025-06-19T10:49:03.756Z",
+    "is_superuser": true,
+    "username": "amet",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-06-19T10:48:36.151Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WQTgGXXw97zcyADRqFvrpU$GL+hQB4IkhLlOGp1TT8+gg/kg3qGLt4u/xlVTY6xlzc=",
+    "last_login": "2025-08-25T10:37:03.636Z",
+    "is_superuser": true,
+    "username": "abi",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-06-20T05:31:27.937Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Zdp5B1yItOesb17Fkiwn9x$uYQvzvfNQ014uFoyizLK7lyXmXVyvJ91dUG434Xx8Dg=",
+    "last_login": "2025-07-15T06:40:39.372Z",
+    "is_superuser": true,
+    "username": "sabari",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-07-11T05:24:45.592Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0a6u5839fr9yfydld1kmzj99j45jugjx",
+  "fields": {
+    "session_data": ".eJxVjMuqwkAQRH9Fei1hknlkkqVbceUHhE53ezNXM5HMBBTx330giMs6p6pugDyG2C1J5i4wtHYNKS8sMb-j9t8ccRRoYY8xD7jaLiPOsIYuSUphip1czmG-QqueDJc8fD_Bwg_rkY4SX4L_Mf5NBU0xz6EvXpXiY1Oxm1hOm0_352DANDzX2tclWVsZqRpHdcPSO2Ws1gdypceqN1YdjCIhT4aZyTondekrKb2iRsP9ATLQVKk:1ubefB:b0FQOBhViycGRvi5Uq1uakz4lKzhXd7dCE_yFiKhxLk",
+    "expire_date": "2025-07-29T12:21:37.244Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1psp3go74yk2up5en4d4ib8x670ebfif",
+  "fields": {
+    "session_data": "eyJhZG1pbl91c2VyX2lkIjo1fQ:1uXuaE:4LyM32jNAtI0zVBGWAyKaEctYD5_5NwHfHBhrs74ow0",
+    "expire_date": "2025-07-19T04:33:02.856Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3smuzajm8eorsx3pow2p2nik2inahz2s",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc40tEfy8xNxUJSslx6TMvNTiDIXgosy8zLLE4sQ8JR2l-OLU4uLM_Lz41IqCzKJKJSuDWgDIySBy:1uenU0:lntdo6o42J17dQLsOAn32LyeAo0EDZcZsDUoyrzacnA",
+    "expire_date": "2025-08-07T04:23:04.637Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4crn48i90cvohevi35rjdwbhxgvcxu99",
+  "fields": {
+    "session_data": ".eJxVjEsOgzAMBe-SdRURiIndZfc9A3LspNBPkPisqt69RUKq2M7Me2_D-hpKt85p6gY1ZziZjtel_xPjzYFFlkcqm9A7l9toZSzLNES7JXa3s72Omp6XvT0c9Dz3vzVSRVHECRG14httoKUWapRK1fnoQh1BsEbIIWQmBAicKgnoBXPy5vMFMVg9ow:1uXd9G:BerLcWy6Fty1h99MNImF9SuZI3CauUs2UHs03VHG6hU",
+    "expire_date": "2025-07-18T09:56:02.829Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5l7htji792yzz7uqsdshxw6e5jvcz9y0",
+  "fields": {
+    "session_data": "eyJhZG1pbl91c2VyX2lkIjo1fQ:1uU0vV:sOIj71IIP6rpA9ga8qhCxZN7D-1BYpBQO5BpzVQr3kA",
+    "expire_date": "2025-07-08T10:30:53.379Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5lcflrle7enced0h0ubmf4tck5gsaivz",
+  "fields": {
+    "session_data": ".eJxVjkkOwyAQBP_COUKGwSw55u43WAMzBGfBkpdTlL_HliwluXZ1l_olelyX0q8zT_1A4iy0OP1mEdOd6w7ohvU6yjTWZRqi3CvyoLPsRuLH5ej-CQrOZVtbzC2CaaLXTlHwwYNJGYxxTvmQyKrGBuKsovMeNISoWLeAqDIxJ9ikSM-hfp_C-wPljj2z:1uSApL:HvnybCT3qnVV5tqx8JX0J5K7FpIWKGQXQU3HTvXE4lk",
+    "expire_date": "2025-07-03T08:40:55.493Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7nl7gp46xqj403luqgx8wczalhvappbc",
+  "fields": {
+    "session_data": ".eJxVjM1uwjAQhF-l2jOK8mPHdm5w58QDROv1hpjCBmUT1KrquxcqJMRxvm9mfgDTJUu_Ks99TtDZDeiyJpblPzbhlQUvDB1sYxbW8eMwZ8k3VBTYQK-smifp-eua52_oyjvDdRlfz2DgjUWkT5aHSCeU41TQJMucY_GoFE-rxX5KfN49u28HI-p4X_tQhkhUUQihJdOkxrahtbWnMqXKxMrV0ZKvvR2cGzB4ax1ySc4b8gMb-P0DmUhXFg:1ucNkL:f_vkrIOddk2o6R8hCd-KaszTf9Cf7qknHGhIRsazB34",
+    "expire_date": "2025-07-31T12:29:57.143Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "91t4o6odjqgjt5klamo58w5139q0rsw5",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc40tEfy8xNxUJSslx6TMvNTiDIXgosy8zLLE4sQ8JR2l-OLU4uLM_Lz41IqCzKJKJSuDWgDIySBy:1udi5V:gM4-yT69HjgvV_kAwGDMgPe5QGXn934wh96qjMBeT6A",
+    "expire_date": "2025-08-04T04:25:17.265Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "b05xp6gaqu9rxejez0h0nx7doyl69pzf",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc40tEfy8xNxUJSslx6TMvNTiDIXgosy8zLLE4sQ8JR2l-OLU4uLM_Lz41IqCzKJKJSuDWgDIySBy:1ue6Th:0CpQP2Vrq3P5EgMUp-opN7kRKeQk5iFKrcKXlOjGk4s",
+    "expire_date": "2025-08-05T06:27:53.039Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bcktfh00dibxmvb96kfqnbacqt1yenm3",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc40tEPy8xNxUJSul4MS8koxEBe_S3MQiJR2l-OLU4uLM_Lz41IqCzKJKJSuDWgAFSR34:1ubzz2:Q_bsgYTz0r1ToLeKxLHnJ6TdtXXOFiMUIzlS0s-qwr0",
+    "expire_date": "2025-07-30T11:07:32.367Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dej2j6b5c637e27tneb7egs1dbwdie84",
+  "fields": {
+    "session_data": ".eJxVjEsOgzAMBe-SdRURiIndZfc9A3LspNBPkPisqt69RUKq2M7Me2_D-hpKt85p6gY1ZziZjtel_xPjzYFFlkcqm9A7l9toZSzLNES7JXa3s72Omp6XvT0c9Dz3vzVSRVHECRG14httoKUWapRK1fnoQh1BsEbIIWQmBAicKgnoBXPy5vMFMVg9ow:1uUN6h:SCGlU-D6V3l3D8FExE7rMhgyaAR_PgSIDmxC8b87DMM",
+    "expire_date": "2025-07-09T10:11:55.025Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "do0dfb0sve6mmasyhqemjjqn8jxwarv7",
+  "fields": {
+    "session_data": ".eJxVjMEOgjAQRP9lz4QAtrTl6N1vINvtIlVpDYVEY_x3wZAQjvPezHwA3eBDOyceW--gkRmkaXYcpn8U1Z4DDgwNDDF4QsigTZySj6Hl19OPb2iKheE89fsbCDgwi3TnsAp3w3CNOcUwjd7mayXfbMov0fHjvHUPBz2mfllrUxhLVJIxpiZxcidZm1pWmgrnSmFLVVlJutKyU6pDo6VUyAUpLUh3LOD7AyiaUo8:1uqUZT:a54hNy1yhyospW_Mdld10KfZDy2qKhMv59XIHFO8g44",
+    "expire_date": "2025-09-08T10:37:03.728Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fdafi1go32fz635989fd49kmnlq0zjko",
+  "fields": {
+    "session_data": ".eJxVjEkOwjAQBP_iM7Icb3E4cucN0XjGg81iS1lOiL9DpEgo16rqfgugV6njOqdpLCTO9iRGWJf8J8KIA4uAj1Q3QXeotyax1WUqUW6J3O0sr43S87K3h4MMc_6tOaAxwVjlOhy0BmBnNAFGItdxHz1rZkbwMUAYPNuEPhjVB2XJK4fi8wVdID6Z:1uSTAl:Cyr5-HhlwOw0aNmPnDwg7pgJU-VVj9zj7YTzpv4kdzc",
+    "expire_date": "2025-07-04T04:16:15.304Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g6yr3yhmxc2k7091t7durmoxcndgiw8b",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc40tEPy8xNxUJSul4MS8koxEBe_S3MQiJR2l-OLU4uLM_Lz41IqCzKJKJSuDWgAFSR34:1ubxq6:mwHVLnaPp6umTKpIqePfOD5egdHM37oES6acZLNukRQ",
+    "expire_date": "2025-07-30T08:50:10.925Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hmpbrd5zmkaa4t3fqbxozu19r3d62yrt",
+  "fields": {
+    "session_data": ".eJxVjEsOgzAMBe-SdRURiIndZfc9A3LspNBPkPisqt69RUKq2M7Me2_D-hpKt85p6gY1ZziZjtel_xPjzYFFlkcqm9A7l9toZSzLNES7JXa3s72Omp6XvT0c9Dz3vzVSRVHECRG14httoKUWapRK1fnoQh1BsEbIIWQmBAicKgnoBXPy5vMFMVg9ow:1uSun8:TnXWesOG2kn0b2U7xsfrGnGaw9THNtXG90dL08WOy6w",
+    "expire_date": "2025-07-05T09:45:42.990Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "k5jk864ql8w0uapx1tu2u3be6tizr57y",
+  "fields": {
+    "session_data": "eyJhZG1pbl91c2VyX2lkIjo1fQ:1ugchu:GL9qhAnJbqIXC1Ab48KgXLWJS9qAx45iOJwfFelHL0s",
+    "expire_date": "2025-08-12T05:16:58.139Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mky9pfcsxd0g9lrsnof3viqb0wyzt3zq",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAobWFcuu8ZyDAzStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uzsur0uyWkh5Qd8B3LrWqqZV3mpHdFH7TpqbI8L4f7d5Cx5W_dITgQMIF7TzCIITSjTbYbuTcAgcU4GVFgIGTfX8kDDWBclwLYREG9P9cDN7Y:1uOUKo:q-gYYnUMePBQcsPtyol4aiDLo1QTHLHUiBMyX6FzXuo",
+    "expire_date": "2025-06-23T04:42:10.148Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q3biugvznfguemo1i0e9n5sdy0wgk5o2",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc40tEfy8xNxUJSslx6TMvNTiDIXgosy8zLLE4sQ8JR2l-OLU4uLM_Lz41IqCzKJKJSuDWgDIySBy:1upk7q:WET22wceChvxep-NH05MnuEuYaN2qSoSHSx-eKBjndM",
+    "expire_date": "2025-09-06T09:01:26.607Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "r1ucggbiqu6xbc0xpk1kg7ribe2p31vs",
+  "fields": {
+    "session_data": "eyJhZG1pbl91c2VyX2lkIjo1fQ:1ugdGz:bv0QxE8i-D7onMspXNCQdxPpGP6BrzvExJuRwzCPiW4",
+    "expire_date": "2025-08-12T05:53:13.870Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "s0l8mbwserxdza5btqby67kfbvwie3qn",
+  "fields": {
+    "session_data": ".eJxVjEuOwjAQRO_S6yhy4k-cLNlzBqvd3RDPgIPiRAIh7s5HCMSyqt6rK5RlZclLSAyD7qpPzngUGKBgxDlBBaFIKWnKQc6nNF9gUBUgH1MOa5H5pT_sgOsyfhuw8NNFpH_Jz4H_MO-nmqa8zCnWT6R-r6XeTiyHzZv9ORixjA9b-64ha1sjbe-o61miU8ZqvSPXeGyjsWpnFAl5MsxM1jnpGt9K4xX1Gm53MEVSnQ:1ua6OR:py8_74ni_ak5Rjlz1yuK55_2avbNdwN9mQmlOWXFeR4",
+    "expire_date": "2025-07-25T05:33:55.390Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "t4u24z27u5btghol384e8p0d6mx0qqvf",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc43NEfy8xNxUJSul4sSkxKJMJR2l-OLU4uLM_Lz41IqCzKJKJSuDWgBZ8xvq:1uZpQ2:Ol1_eF1FeHzZ1LIDUC6pGAb6hBCjqMAHK8iofCayILo",
+    "expire_date": "2025-07-24T11:26:26.120Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wslk269a6xddn8uw36muf1nryae6ne1s",
+  "fields": {
+    "session_data": ".eJyrVkpMyc3Miy8tTi2Kz0xRsjLVUSouKU1JzSsBc40tEfy8xNxUJSslx6TMvNTiDIXgosy8zLLE4sQ8JR2l-OLU4uLM_Lz41IqCzKJKJSuDWgDIySBy:1ud31O:zy3cSSr5Ozx9o40cR5Zuz_O7YG4EvEfuZfZE6Pl0HCQ",
+    "expire_date": "2025-08-02T08:34:18.916Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yuz6nwiqln0x58cwn5hjrj24ai4envj5",
+  "fields": {
+    "session_data": ".eJxVjM1uwjAQhF-l2jOK8mPHdm5w58QDROv1hpjCBmUT1KrquxcqJMRxvm9mfgDTJUu_Ks99TtDZDeiyJpblPzbhlQUvDB1sYxbW8eMwZ8k3VBTYQK-smifp-eua52_oyjvDdRlfz2DgjUWkT5aHSCeU41TQJMucY_GoFE-rxX5KfN49u28HI-p4X_tQhkhUUQihJdOkxrahtbWnMqXKxMrV0ZKvvR2cGzB4ax1ySc4b8gMb-P0DmUhXFg:1uckFw:km4NwzCBAscsvN0NFThVwAJ5UqkPk1Jbal2T_O6vmxA",
+    "expire_date": "2025-08-01T12:32:04.084Z"
+  }
+},
+{
+  "model": "students.degree",
+  "pk": 1,
+  "fields": {
+    "name": "B.E"
+  }
+},
+{
+  "model": "students.degree",
+  "pk": 2,
+  "fields": {
+    "name": "B.Sc"
+  }
+},
+{
+  "model": "students.degree",
+  "pk": 3,
+  "fields": {
+    "name": "Diploma"
+  }
+},
+{
+  "model": "students.department",
+  "pk": 1,
+  "fields": {
+    "degree": 1,
+    "name": "MARINE ENGINEERING"
+  }
+},
+{
+  "model": "students.department",
+  "pk": 2,
+  "fields": {
+    "degree": 2,
+    "name": "NAUTICAL SCIENCE"
+  }
+},
+{
+  "model": "students.department",
+  "pk": 3,
+  "fields": {
+    "degree": 3,
+    "name": "ELECTRO TECHNICAL OFFICERS(ETO)"
+  }
+},
+{
+  "model": "students.department",
+  "pk": 4,
+  "fields": {
+    "degree": 3,
+    "name": "Diploma in Nautical Science (DNS)"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 5,
+  "fields": {
+    "department": 1,
+    "section": "A"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 6,
+  "fields": {
+    "department": 1,
+    "section": "B"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 7,
+  "fields": {
+    "department": 1,
+    "section": "C"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 8,
+  "fields": {
+    "department": 1,
+    "section": "D"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "section": "A"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 10,
+  "fields": {
+    "department": 2,
+    "section": "B"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 11,
+  "fields": {
+    "department": 2,
+    "section": "C"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 12,
+  "fields": {
+    "department": 2,
+    "section": "D"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 13,
+  "fields": {
+    "department": 3,
+    "section": "A"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 14,
+  "fields": {
+    "department": 3,
+    "section": "C"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 15,
+  "fields": {
+    "department": 3,
+    "section": "D"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 16,
+  "fields": {
+    "department": 4,
+    "section": "A"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 17,
+  "fields": {
+    "department": 4,
+    "section": "B"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 18,
+  "fields": {
+    "department": 4,
+    "section": "C"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 19,
+  "fields": {
+    "department": 4,
+    "section": "D"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 7,
+  "fields": {
+    "name": "pradeep",
+    "degree": null,
+    "department": null,
+    "section": null,
+    "email": "pradeep@tansam.org",
+    "vp_code": "VP098",
+    "created_at": "2025-06-18T09:20:14.811Z"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 37,
+  "fields": {
+    "name": "sabari",
+    "degree": 1,
+    "department": 1,
+    "section": 5,
+    "email": "sabari@tansam.org",
+    "vp_code": "VP345",
+    "created_at": "2025-07-10T10:12:11.478Z"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 38,
+  "fields": {
+    "name": "Santha Kumar",
+    "degree": 1,
+    "department": 1,
+    "section": 8,
+    "email": "santha@gmail.com",
+    "vp_code": "VP567",
+    "created_at": "2025-07-15T10:09:43Z"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 39,
+  "fields": {
+    "name": "Abinesh Srinivasan",
+    "degree": 1,
+    "department": 1,
+    "section": 7,
+    "email": "abinesh70103@gmail.com",
+    "vp_code": "VP1234",
+    "created_at": "2025-07-17T09:45:49.034Z"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 40,
+  "fields": {
+    "name": "Adhithiya",
+    "degree": 2,
+    "department": 2,
+    "section": 10,
+    "email": "adhithiya@gmail.com",
+    "vp_code": "VP12345",
+    "created_at": "2025-07-17T12:30:34.803Z"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 41,
+  "fields": {
+    "name": "Abishek",
+    "degree": 2,
+    "department": 2,
+    "section": 9,
+    "email": "abishek87785@gmail.com",
+    "vp_code": "VP123456",
+    "created_at": "2025-07-17T12:31:49.228Z"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 42,
+  "fields": {
+    "name": "monica",
+    "degree": 1,
+    "department": 1,
+    "section": 6,
+    "email": "monika@gmail.com",
+    "vp_code": "VP0987",
+    "created_at": "2025-08-23T05:06:15.532Z"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 43,
+  "fields": {
+    "name": "ABI",
+    "degree": 1,
+    "department": 1,
+    "section": 6,
+    "email": "klr6244428@gmail.com",
+    "vp_code": "VP4567",
+    "created_at": "2025-08-23T05:12:22.790Z"
+  }
+},
+{
+  "model": "students.module",
+  "pk": 1,
+  "fields": {
+    "name": "Centrifugal Pump in Ship",
+    "description": "Centrifugal Pump in Ship",
+    "created_at": "2025-06-20T10:20:25.977Z"
+  }
+},
+{
+  "model": "students.module",
+  "pk": 12,
+  "fields": {
+    "name": "centrifugal pump machine",
+    "description": "centrifugal pump machine",
+    "created_at": "2025-06-24T09:18:21.336Z"
+  }
+},
+{
+  "model": "students.module",
+  "pk": 14,
+  "fields": {
+    "name": "amet ship management",
+    "description": null,
+    "created_at": "2025-06-24T11:21:04.159Z"
+  }
+},
+{
+  "model": "students.session",
+  "pk": 20,
+  "fields": {
+    "student": 7,
+    "module": 14,
+    "check_in": "2025-06-16T05:54:44.368Z",
+    "check_out": "2025-07-15T09:54:14Z",
+    "progress": 100
+  }
+},
+{
+  "model": "students.session",
+  "pk": 29,
+  "fields": {
+    "student": 37,
+    "module": 14,
+    "check_in": "2025-07-11T05:22:36.825Z",
+    "check_out": "2025-08-25T10:43:12Z",
+    "progress": 100
+  }
+},
+{
+  "model": "students.session",
+  "pk": 30,
+  "fields": {
+    "student": 38,
+    "module": 12,
+    "check_in": "2025-07-15T10:13:38.968Z",
+    "check_out": "2025-07-15T10:27:42Z",
+    "progress": 100
+  }
+},
+{
+  "model": "students.session",
+  "pk": 31,
+  "fields": {
+    "student": 39,
+    "module": 14,
+    "check_in": "2025-07-17T09:46:36.907Z",
+    "check_out": "2025-07-17T09:48:36Z",
+    "progress": 100
+  }
+},
+{
+  "model": "students.session",
+  "pk": 32,
+  "fields": {
+    "student": 39,
+    "module": 1,
+    "check_in": "2025-07-17T12:26:54.542Z",
+    "check_out": "2025-07-17T12:29:18Z",
+    "progress": 100
+  }
+},
+{
+  "model": "students.session",
+  "pk": 33,
+  "fields": {
+    "student": 39,
+    "module": 14,
+    "check_in": "2025-08-25T10:14:25.190Z",
+    "check_out": "2025-08-25T10:43:40Z",
+    "progress": 50
+  }
+},
+{
+  "model": "students.session",
+  "pk": 34,
+  "fields": {
+    "student": 42,
+    "module": 12,
+    "check_in": "2025-08-25T10:29:44.014Z",
+    "check_out": "2025-08-25T10:37:30Z",
+    "progress": 100
+  }
+},
+{
+  "model": "students.adminuser",
+  "pk": 3,
+  "fields": {
+    "name": "amet",
+    "staff_id": "amet123",
+    "email": "amet@gmail.com",
+    "password": "pbkdf2_sha256$1000000$XEhMHC9ov0qx1ELPSIkpdL$rWRdnxLEZVfktDLk7H7yZbQdu8lqRNES0trdXAY0Jgs="
+  }
+},
+{
+  "model": "students.adminuser",
+  "pk": 4,
+  "fields": {
+    "name": "abishek",
+    "staff_id": "2",
+    "email": null,
+    "password": "pbkdf2_sha256$1000000$rR4nQrbZRUg9cyPgU8HGkR$II8DLx+p638ZOheVCycuNZ0EizJsNL4m8QcrAJDrvzU="
+  }
+},
+{
+  "model": "students.adminuser",
+  "pk": 5,
+  "fields": {
+    "name": "abi",
+    "staff_id": "abi",
+    "email": null,
+    "password": "pbkdf2_sha256$1000000$wr3yI0AmtR97CGN7mM4rJM$M1qVedM7Rrv87ZshT597/QG9u1RJsIpZ36ivQalet1M="
+  }
+},
+{
+  "model": "students.adminuser",
+  "pk": 6,
+  "fields": {
+    "name": "pradeep",
+    "staff_id": "121",
+    "email": "pradeep@gmail.com",
+    "password": "pbkdf2_sha256$1000000$B9t2PzmPPivf6wN7rEpBsH$BU5ZxD6IObpEW8Y5iBIDJIcRclQQMw9+MC3yK/vtK9E="
+  }
+},
+{
+  "model": "students.adminuser",
+  "pk": 8,
+  "fields": {
+    "name": "pradeep",
+    "staff_id": "1212",
+    "email": null,
+    "password": "pbkdf2_sha256$1000000$3vabmytI6S4iRJqgnez8gk$tdxovH7g9rAjGtlAe2Xk4DIBN2r3XJy1bkkLVQ3DdDM="
+  }
+},
+{
+  "model": "students.adminmessage",
+  "pk": 20,
+  "fields": {
+    "message": "Complete the 2nd Module",
+    "timestamp": "2025-07-18T11:33:49.028Z",
+    "is_read": false
+  }
+},
+{
+  "model": "students.adminmessage",
+  "pk": 21,
+  "fields": {
+    "message": "complete within 2 days",
+    "timestamp": "2025-07-18T12:24:03.385Z",
+    "is_read": false
+  }
+},
+{
+  "model": "students.adminmessage",
+  "pk": 22,
+  "fields": {
+    "message": "complete within 12 days",
+    "timestamp": "2025-07-18T12:29:12.242Z",
+    "is_read": false
+  }
+},
+{
+  "model": "students.adminmessage",
+  "pk": 23,
+  "fields": {
+    "message": "centrifugal module complete today itself",
+    "timestamp": "2025-07-19T04:10:46.694Z",
+    "is_read": false
+  }
+},
+{
+  "model": "students.adminmessage",
+  "pk": 24,
+  "fields": {
+    "message": "hi students,complete 2 nd module",
+    "timestamp": "2025-07-19T09:21:09.390Z",
+    "is_read": false
+  }
+},
+{
+  "model": "students.adminmessage",
+  "pk": 25,
+  "fields": {
+    "message": "aaa",
+    "timestamp": "2025-08-23T05:09:21.522Z",
+    "is_read": false
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-06-12T07:14:45.051Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "3",
+    "object_repr": "Shushma",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-06-12T08:23:39.750Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "module"
+    ],
+    "object_id": "3",
+    "object_repr": "neww",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-06-12T09:07:33.199Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "5",
+    "object_repr": "sabari",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-06-12T09:09:29.210Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "2",
+    "object_repr": "abinesh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-06-12T10:23:13.747Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "6",
+    "object_repr": "rahul",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-06-13T09:33:26.805Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "module"
+    ],
+    "object_id": "4",
+    "object_repr": "machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-06-16T05:54:07.151Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "7",
+    "object_repr": "pradeep",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-06-16T05:57:43.758Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "8",
+    "object_repr": "Abishek",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-06-16T10:32:39.093Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "16",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-06-16T10:35:07.157Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "1",
+    "object_repr": "Abinesh",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-06-17T12:21:22.399Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "2",
+    "object_repr": "Abinesh",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-06-18T04:52:44.545Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "1",
+    "object_repr": "STAFF101 - Abinesh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-06-18T04:52:48.382Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "2",
+    "object_repr": "121 - Abinesh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-06-18T04:53:20.512Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "3",
+    "object_repr": "amet123 - amet",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-06-18T09:21:13.191Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "9",
+    "object_repr": "amet1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-06-18T10:15:35.113Z",
+    "user": [
+      "tansam"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "10",
+    "object_repr": "amet2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-06-19T10:50:28.218Z",
+    "user": [
+      "amet"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "4",
+    "object_repr": "2 - abishek",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-06-19T10:59:14.547Z",
+    "user": [
+      "amet"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "4",
+    "object_repr": "2 - abishek",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-06-20T05:34:25.124Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "5",
+    "object_repr": "abi - abi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-06-21T08:36:14.928Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "17",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-06-23T05:41:19.466Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "degree"
+    ],
+    "object_id": "1",
+    "object_repr": "B.E",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-06-23T05:41:31.013Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "degree"
+    ],
+    "object_id": "2",
+    "object_repr": "B.Sc",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-06-23T05:41:43.822Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "degree"
+    ],
+    "object_id": "3",
+    "object_repr": "Diploma",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-06-23T05:42:25.879Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "department"
+    ],
+    "object_id": "1",
+    "object_repr": "B.E - MARINE ENGINEERING",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-06-23T05:42:57.817Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "department"
+    ],
+    "object_id": "2",
+    "object_repr": "B.Sc - NAUTICAL SCIENCE",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-06-23T05:43:12.848Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "department"
+    ],
+    "object_id": "3",
+    "object_repr": "Diploma - ELECTRO TECHNICAL OFFICERS",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-06-23T05:44:53.207Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "1",
+    "object_repr": "A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-06-23T05:45:04.414Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "2",
+    "object_repr": "B",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-06-23T05:45:20.669Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "3",
+    "object_repr": "A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-06-23T05:45:26.507Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "4",
+    "object_repr": "B",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-06-23T06:17:54.755Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "4",
+    "object_repr": "B",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-06-23T06:17:54.755Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "3",
+    "object_repr": "A",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-06-23T06:22:30.409Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "3",
+    "object_repr": "C",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-06-23T06:22:35.716Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "4",
+    "object_repr": "D",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-06-23T06:41:17.760Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "department"
+    ],
+    "object_id": "3",
+    "object_repr": "Diploma - ELECTRO TECHNICAL OFFICERS(ETO)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-06-23T06:41:47.170Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "department"
+    ],
+    "object_id": "4",
+    "object_repr": "Diploma - Diploma in Nautical Science (DNS)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-06-23T06:42:42.529Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "15",
+    "object_repr": "Abishek",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-06-25T06:15:58.806Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "6",
+    "object_repr": "121 - pradeep",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-07-02T11:26:47.289Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "5",
+    "object_repr": "A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-07-02T11:27:02.252Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "6",
+    "object_repr": "B",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-07-02T11:27:09.177Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "7",
+    "object_repr": "C",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-07-02T11:28:29.420Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "4",
+    "object_repr": "D",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-07-02T11:28:29.420Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "3",
+    "object_repr": "C",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-07-02T11:28:29.420Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "2",
+    "object_repr": "B",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-07-02T11:28:29.420Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "1",
+    "object_repr": "A",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-07-02T11:28:40.179Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "8",
+    "object_repr": "D",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-07-02T11:28:52.321Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "9",
+    "object_repr": "A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-07-02T11:28:56.830Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "10",
+    "object_repr": "B",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-07-02T11:29:01.438Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "11",
+    "object_repr": "C",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-07-02T11:29:06.520Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "12",
+    "object_repr": "D",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2025-07-02T11:29:12.021Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "13",
+    "object_repr": "A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2025-07-02T11:29:19.584Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "14",
+    "object_repr": "C",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2025-07-02T11:29:24.735Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "15",
+    "object_repr": "D",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2025-07-02T11:29:31.853Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "16",
+    "object_repr": "A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2025-07-02T11:29:36.078Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "17",
+    "object_repr": "B",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2025-07-02T11:29:41.689Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "18",
+    "object_repr": "C",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2025-07-02T11:29:46.765Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "section"
+    ],
+    "object_id": "19",
+    "object_repr": "D",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2025-07-11T05:33:32.832Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "7",
+    "object_repr": "121212 - sabari",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2025-07-14T09:16:15.755Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "29",
+    "object_repr": "sabari - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2025-07-14T09:18:09.783Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "17",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2025-07-14T09:41:35.771Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2025-07-14T09:41:50.913Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "20",
+    "object_repr": "pradeep - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Module\", \"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2025-07-14T10:05:48.826Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "28",
+    "object_repr": "Abinesh - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Module\", \"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2025-07-14T11:10:33.241Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "7",
+    "object_repr": "121212 - sabari",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2025-07-14T11:11:11.027Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "adminuser"
+    ],
+    "object_id": "8",
+    "object_repr": "1212 - pradeep",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2025-07-15T06:41:17.689Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "28",
+    "object_repr": "Abinesh - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2025-07-15T06:44:16.495Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "8",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2025-07-15T06:44:57.304Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Module\", \"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2025-07-15T06:45:33.417Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2025-07-15T06:45:54.536Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2025-07-15T07:23:03.859Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "8",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2025-07-15T07:23:19.859Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "8",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2025-07-15T07:23:53.252Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "17",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2025-07-15T09:13:56.365Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "28",
+    "object_repr": "Abinesh - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2025-07-15T09:15:24.100Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "17",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2025-07-15T09:16:23.129Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2025-07-15T09:16:41.044Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "28",
+    "object_repr": "Abinesh - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2025-07-15T09:18:13.772Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2025-07-15T09:47:51.623Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2025-07-15T09:54:21.345Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "20",
+    "object_repr": "pradeep - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2025-07-15T10:10:32.483Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "student"
+    ],
+    "object_id": "38",
+    "object_repr": "Santha Kumar",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2025-07-15T10:27:47.640Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "30",
+    "object_repr": "Santha Kumar - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\", \"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2025-07-15T11:25:55.350Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "17",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2025-07-15T11:26:07.581Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2025-07-15T11:26:22.972Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "26",
+    "object_repr": "Abinesh - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2025-07-15T11:26:29.905Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "17",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2025-07-15T11:26:44.243Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "17",
+    "object_repr": "Abinesh - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2025-07-15T12:22:05.083Z",
+    "user": [
+      "sabari"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "30",
+    "object_repr": "Santha Kumar - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2025-07-17T09:47:20.203Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "31",
+    "object_repr": "Abinesh Srinivasan - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2025-07-17T09:48:38.000Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "31",
+    "object_repr": "Abinesh Srinivasan - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2025-07-17T09:48:58.650Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "31",
+    "object_repr": "Abinesh Srinivasan - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2025-07-17T12:28:05.402Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "32",
+    "object_repr": "Abinesh Srinivasan - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2025-07-17T12:28:48.598Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "32",
+    "object_repr": "Abinesh Srinivasan - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2025-07-17T12:29:01.155Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "32",
+    "object_repr": "Abinesh Srinivasan - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2025-07-17T12:29:20.287Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "32",
+    "object_repr": "Abinesh Srinivasan - Centrifugal Pump in Ship",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "18",
+    "object_repr": "aaaaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "17",
+    "object_repr": "aaaaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "16",
+    "object_repr": "wqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "15",
+    "object_repr": "wqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "14",
+    "object_repr": "wqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "13",
+    "object_repr": "wqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "12",
+    "object_repr": "wqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "11",
+    "object_repr": "wqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "10",
+    "object_repr": "wqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "9",
+    "object_repr": "aaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "8",
+    "object_repr": "aaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "7",
+    "object_repr": "aaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "6",
+    "object_repr": "sss",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "5",
+    "object_repr": "aaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "4",
+    "object_repr": "rrrr",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 111,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "3",
+    "object_repr": "aaaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 112,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "2",
+    "object_repr": "aaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 113,
+  "fields": {
+    "action_time": "2025-07-18T11:22:47.459Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "1",
+    "object_repr": "aaaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 114,
+  "fields": {
+    "action_time": "2025-07-18T11:33:25.104Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "adminmessage"
+    ],
+    "object_id": "19",
+    "object_repr": "aaa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 115,
+  "fields": {
+    "action_time": "2025-08-25T10:37:41.890Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "34",
+    "object_repr": "monica - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\", \"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 116,
+  "fields": {
+    "action_time": "2025-08-25T10:43:14.105Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "29",
+    "object_repr": "sabari - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 117,
+  "fields": {
+    "action_time": "2025-08-25T10:43:34.960Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "34",
+    "object_repr": "monica - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 118,
+  "fields": {
+    "action_time": "2025-08-25T10:43:41.552Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "33",
+    "object_repr": "Abinesh Srinivasan - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Check out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 119,
+  "fields": {
+    "action_time": "2025-08-25T10:43:49.336Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "33",
+    "object_repr": "Abinesh Srinivasan - amet ship management",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 120,
+  "fields": {
+    "action_time": "2025-08-25T10:44:55.566Z",
+    "user": [
+      "abi"
+    ],
+    "content_type": [
+      "students",
+      "session"
+    ],
+    "object_id": "34",
+    "object_repr": "monica - centrifugal pump machine",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Progress\"]}}]"
+  }
+}
+]
