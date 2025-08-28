@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('students.urls')),
     path('student/', include('student_panel.urls')),
+    path('subscription/', include('subscription.urls', namespace='subscription')),
 ]
 
 if settings.DEBUG:

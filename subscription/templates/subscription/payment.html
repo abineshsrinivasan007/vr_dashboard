@@ -1,0 +1,7 @@
+<h2>Payment Page</h2>
+<p>Plan: {{ subscription.plan.name }}</p>
+<p>Price: ${{ subscription.plan.price }}/month</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-success">Pay Now (Test)</button>
+</form>

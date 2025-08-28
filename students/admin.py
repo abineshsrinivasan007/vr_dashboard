@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Student, Module, Session, AdminUser, Degree, Department, Section, AdminMessage
+from subscription.models import Plan, Feature
 
 @admin.register(AdminUser)
 class AdminUserAdmin(admin.ModelAdmin):
@@ -52,3 +53,16 @@ class SessionAdmin(admin.ModelAdmin):
 class AdminMessageAdmin(admin.ModelAdmin):
     list_display = ('id', 'message', 'timestamp')
 
+@admin.register(Feature)
+class FeatureAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'description')  # Show ID, name, and description
+    search_fields = ('name', 'description')       # Search by name or description
+    list_per_page = 20
+
+@admin.register(Plan)
+class PlanAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'price', 'max_students', 'max_staff', 'is_popular')
+    search_fields = ('name',)
+    list_filter = ('is_popular',)
+    filter_horizontal = ('features',)  # To select multiple features for a plan
+    list_per_page = 20

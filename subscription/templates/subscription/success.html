@@ -1,0 +1,5 @@
+<h2>Subscription Successful!</h2>
+<p>Hi {{ subscription.college_name }},</p>
+<p>Your subscription to {{ subscription.plan.name }} is now active.</p>
+<p>An email confirmation has been sent to {{ subscription.email }}.</p>
+<a href="{% url 'admin_app:dashboard' %}" class="btn btn-primary">Go to Dashboard</a>

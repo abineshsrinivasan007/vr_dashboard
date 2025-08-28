@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7lp4f=u_d+656k-v5p9w(**b9k1c9ogj7_gn%_(7u=6=%xvlp!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'captcha',
     'channels',
     'student_panel',
+    'subscription',
 ]
 #WEBSOCKET_FOR_ADMIN_TO_STUDENTS_NOTIFICATION
 ASGI_APPLICATION = 'vrbackend.asgi.application'
@@ -114,7 +115,7 @@ ROOT_URLCONF = 'vrbackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
