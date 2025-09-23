@@ -367,7 +367,7 @@ def add_student(request):
         subject = 'Welcome to the Student Portal'
         message = f'''Hi {name},
 
-Welcome to the AMET Institute of Science and Technology Student Portal!
+Welcome to the Student Portal!
 
 Your profile has been created successfully.
 
