@@ -106,7 +106,7 @@ def admin_login_view(request):
         recaptcha_response = request.POST.get('g-recaptcha-response')
 
         # ✅ Step 1: Verify reCAPTCHA with Google
-        secret_key = '6LcD39QrAAAAAOXSzVop9cHhNw45iY11mV0egRfZ'  # Replace with your actual secret key
+        secret_key = '6LdvitUrAAAAABpVMt269CmOVSpyGZtrDDoQTHpQ'  # Replace with your actual secret key
         recaptcha_data = {
             'secret': secret_key,
             'response': recaptcha_response
